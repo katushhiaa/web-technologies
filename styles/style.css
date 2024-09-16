@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header_section {
+    position: relative; /* Залиште це, якщо вже є */
+    background: url('../img/header_picture.png') lightgray 50% / cover no-repeat;
+    width: 1920px;
+    height: 980px;
+}
+
+.header_section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+
+
+.header_content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 50px 1577px 36px 65px;
+    z-index: 2;
+}
+
+
+.school_name {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.school_icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 12px;
+}
+
+.header_text_middle {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    color: #FFFFFF;
+    padding: 205px 0 0 240px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+}
+
+.school_info {
+    display: flex;
+    justify-content: space-around;
+    color: var(--100, #FFF);
+    font-family: Roboto;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-variant: all-small-caps;
+}
+
+
+.school_info p {
+    margin: 0;
+    border-radius: 10px;
+}
+
+.student_amount{
+    padding: 0 0 0 74px;
+}
+
+.success_future {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    padding: 0 0 0 0;
+}
+
+
+.success_future_title{
+    font-family: Impact;
+    font-size: 76px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    width: 749px;
+}
+
+.success_future_text{
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 133.188%;
+    width: 400px;
+    padding: 25px 0 0 0;
+}
+
+.read_next_button {
+    border-radius: 35px;
+    border: 1px solid var(--1100, #883CDA);
+    background: var(--1100, #883CDA);
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.read_next_button img {
+    margin-left: 10px;
+    height: 15px;
+    width: auto;
+}
+
