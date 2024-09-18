@@ -9,7 +9,7 @@ body {
 }
 
 .header_section {
-    position: relative; /* Залиште це, якщо вже є */
+    position: relative;
     background: url('../img/header_picture.png') lightgray 50% / cover no-repeat;
     width: 1920px;
     height: 980px;
@@ -25,7 +25,6 @@ body {
     background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
-
 
 
 .header_content {
@@ -128,3 +127,139 @@ body {
     width: auto;
 }
 
+.header_right{
+    display: inline-flex;
+    align-items: center;
+    gap: 48px;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    top: 23px;
+    padding: 23px 92px 79px 1483px;
+}
+
+
+.main_menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 43px;
+    position: relative;
+    z-index: 3;
+    height: 40px;
+    left: 784px;
+    top: -30px;
+    width: 785px;
+}
+
+
+.main_menu li {
+    position: relative;
+    z-index: 3;
+}
+
+.main_menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    z-index: 3;
+    padding: 10px 15px; /* додаємо паддінги для вирівнювання всередині */
+    line-height: 1; /* щоб текст не виходив за межі */
+}
+
+.main_menu a:hover {
+    text-decoration: underline;
+}
+
+.dropdown:hover .dropdown_content {
+    display: block;
+    width: 222px;
+    background: #883CDA;
+    border-radius: 15px;
+    text-align: left;
+    padding: 10px;
+    z-index: 3;
+}
+
+.dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: #883CDA;
+    z-index: 3;
+    list-style: none;
+    left: 0;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.dropdown_content li {
+    margin-bottom: 5px;
+}
+
+.dropdown_content li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown_content li a:hover {
+    text-decoration: underline;
+}
+
+.sign_up_button {
+    position: absolute;
+    right: 100px;
+    top: 46%;
+    transform: translateY(-92%);
+    border-radius: 35px;
+    border: 1px solid var(--1100, #883CDA);
+    background: var(--1100, #883CDA);
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+
+.sign_up_button img {
+    margin-left: 10px;
+    height: 15px;
+    width: auto;
+}
+
+.lines-container {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+.top-line {
+    position: absolute;
+    top: -40px; /* регулюй відступ від тексту */
+    left: 49.5%;
+    transform: translateX(-15%);
+    z-index: 2;
+}
+
+.bottom-line {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-20%);
+    z-index: 2;
+}
+
+.half-circle {
+    position: absolute;
+    left: 40%;
+    transform: translateY(-133.5%);
+    z-index: 2;
+}
