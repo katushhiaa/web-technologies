@@ -4,9 +4,11 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
+html {
+    width: 100%;
+    height: 100%;
 }
+
 
 .header_section {
     position: relative;
@@ -156,9 +158,20 @@ body {
     height: 40px;
     left: 784px;
     top: -30px;
-    width: 785px;
+    width: 860px;
 }
 
+.city_schools, .other_city_schools {
+    position: relative;
+    font-size: 16px;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding: 0 15px 0 20px;
+}
 
 .main_menu li {
     position: relative;
@@ -167,11 +180,11 @@ body {
 
 .main_menu a {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px; /* збільште розмір шрифту */
     color: #fff;
     z-index: 3;
-    padding: 10px 15px; /* додаємо паддінги для вирівнювання всередині */
-    line-height: 1; /* щоб текст не виходив за межі */
+    padding: 0 15px 0 20px;
+    line-height: 1;
 }
 
 .main_menu a:hover {
@@ -180,13 +193,39 @@ body {
 
 .dropdown:hover .dropdown_content {
     display: block;
-    width: 222px;
+    width: 250px;
     background: #883CDA;
-    border-radius: 15px;
+    border-radius: 20px;
     text-align: left;
-    padding: 10px;
+    padding: 15px;
     z-index: 3;
 }
+
+.dropdown:hover > a {
+    background-color: #883CDA;
+    color: #fff;
+    border-radius: 15px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.dropdown_content li {
+    margin-bottom: 10px;
+}
+
+.dropdown_content li a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    line-height: 1.5;
+}
+
+.dropdown_content li a:hover {
+    text-decoration: underline;
+}
+
 
 .dropdown_content {
     display: none;
@@ -197,19 +236,6 @@ body {
     left: 0;
     border-radius: 15px;
     padding: 15px;
-}
-
-.dropdown_content li {
-    margin-bottom: 5px;
-}
-
-.dropdown_content li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.dropdown_content li a:hover {
-    text-decoration: underline;
 }
 
 .sign_up_button {
@@ -243,7 +269,7 @@ body {
 
 .top-line {
     position: absolute;
-    top: -40px; /* регулюй відступ від тексту */
+    top: -40px;
     left: 49.5%;
     transform: translateX(-15%);
     z-index: 2;
@@ -270,15 +296,15 @@ body {
 
 .metrics_content {
     display: flex;
-    justify-content: space-between;
+    justify-content: normal;
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 50px;
+    gap: 30px;
 }
 
 .metrics_info {
-    max-width: 400px;
+    max-width: 350px;
 }
 
 .metrics_info h2 {
@@ -291,35 +317,38 @@ body {
     font-family: Roboto, sans-serif;
     font-size: 16px;
     color: #666;
+    margin-bottom: 35px;
+    margin-top: 24px;
 }
 
 .metrics_image_wrapper {
     position: relative;
+    max-width: 450px;
 }
 
 .metrics_shape{
     position: absolute;
-    top: 58px;
+    top: 40px;
     left: 0;
     z-index: 1;
 }
 
-.metrics_image img {
-    max-width: 400px;
+.metrics_image_wrapper img {
+    max-width: 450px;
     border-radius: 20px;
     position: relative;
-    z-index: 2;
 }
 
 .metrics_stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 10px;
+    margin-left: 120px;
 }
 
 .stat_item {
-    padding: 20px;
-    border-radius: 15px;
+    padding: 15px;
+    border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     display: flex;
@@ -329,40 +358,54 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: white;
+    height: 196px;
+    width: 150px;
 }
+
 .stat_item:nth-child(1) {
-    background-color: #FF6B6B; /* red */
+    background-color: #FF6B6B;
     color: white;
+    margin: 40px 26px 32px 0;
 }
 
 .stat_item:nth-child(2) {
-    background-color: #FFC107; /* yellow */
+    background-color: #FFC107;
     color: white;
+    height: 196px;
+    margin: 40px 26px 32px 0;
 }
 
 .stat_item:nth-child(3) {
-    background-color: #8BC34A; /* green */
+    background-color: #8BC34A;
     color: white;
+    height: 196px;
+    margin: 40px 26px 32px 0;
 }
 
 .stat_item:nth-child(4) {
-    background-color: #00BCD4; /* cyan */
+    background-color: #00BCD4;
     color: white;
+    height: 196px;
+    margin: 0 26px 32px 0;
 }
 
 .stat_item:nth-child(5) {
-    background-color: #9C27B0; /* purple */
+    background-color: #9C27B0;
     color: white;
+    height: 196px;
+    margin: 0 26px 32px 0;
 }
 
 .stat_item:nth-child(6) {
-    background-color: #2196F3; /* blue */
+    background-color: #2196F3;
     color: white;
+    height: 196px;
+    margin: 0 26px 32px 0;
 }
 
 .stat_item span {
     display: block;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -372,6 +415,7 @@ body {
     font-size: 14px;
     margin: 0;
 }
+
 
 .helping_section {
     padding: 50px 0;
@@ -385,30 +429,28 @@ body {
 }
 
 .helping_info h2 {
-    position: relative;
     font-size: 48px;
     font-family: Impact;
     color: #000;
     text-align: left;
-    width: 541px;
-    height: 118px;
+    margin-bottom: 10px;
 }
 
 .helping_info p {
-    width: 368px;
-    position: relative;
     font-size: 16px;
-    line-height: 144.69%;
+    line-height: 1.4;
     font-family: "Roboto", sans-serif;
     color: #000;
     text-align: left;
-    height: 50px;
+    margin-bottom: 30px;
+    width: 368px;
 }
 
 .helping_cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 300px;
     gap: 20px;
+    height: 100%;
 }
 
 .card {
@@ -417,8 +459,9 @@ body {
     border-radius: 10px;
     background-color: #f9f9f9;
     text-align: left;
-    height: 297px;
-    width: 280px;
+    height: 371px;
+    margin: 0;
+
 }
 
 .card h3 {
@@ -426,59 +469,77 @@ body {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
-    color: #333;
+    color: #141516;
 }
 
 .card p {
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    color: #666;
+    font-size: 18px;
+    color: #141516;
     margin-bottom: 20px;
-}
-
-.read_more img {
-    margin-left: 5px;
-}
-
-.helping_image {
-    margin-top: 40px;
-}
-
-.helping_image img {
-    width: 100%;
-    position: relative;
-    border-radius: 10px;
-    max-width: 100%;
-    overflow: hidden;
-    height: 371px;
-    object-fit: cover;
-    width: 696px;
+    height: 86px;
 }
 
 .read_more_btn {
     display: flex;
     align-items: center;
-    justify-content: center;
     font-weight: bold;
     background-color: transparent;
-    border: none;
+    border: 1px solid #883cda;
     color: #883cda;
     font-size: 16px;
-    font-family: "Roboto", sans-serif;
     cursor: pointer;
-    gap: 16px;
-    padding: 8px;
+    border-radius: 35px;
+    box-sizing: border-box;
+    width: 220px;
+    flex-direction: row;
+    padding: 16px 24px;
+    text-align: left;
+    font-family: "Roboto", sans-serif;
+    margin: 91px 0 0 0;
 }
 
-.read_more_btn:hover {
-    color: #a05be1;
+.read_more_btn img {
+    margin-left: 5px;
 }
 
-.frame-child {
-    width: 9.9px;
-    height: 9.9px;
-    object-fit: contain;
+.helping_image-right {
+    grid-column: 4 / 5;
+    grid-row: 1 / 3;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 766px;
 }
+
+.helping_image-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.helping_image-left {
+    grid-column: 1 / 3;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    height: 370px;
+}
+
+.helping_image-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.helping_image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
 
 .parent {
     width: 168px;
@@ -609,17 +670,14 @@ body {
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-}
+
 
 .card-container {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
     margin: 40px auto;
-    width: 90%; /* Increased to fit better */
+    width: 90%;
 }
 
 .card-cost {
@@ -627,10 +685,10 @@ body {
     width: 338px;
     position: relative;
     box-shadow: 8px -10px 23px #f1f1f1, -8px 10px 23px #f1f1f1;
-    border-radius: 25px; /* Adjusted radius to match the rounder corners */
+    border-radius: 25px;
     background-color: #fff;
     height: 413px;
-    margin: 0 30px; /* Added spacing between cards */
+    margin: 0 30px;
 }
 
 .icon {

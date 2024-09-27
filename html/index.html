@@ -30,11 +30,13 @@
                 <li class="dropdown">
                     <a href="#">Наші школи <img src="../img/line.svg"></a>
                     <ul class="dropdown_content">
-                        <li><a href="#">Школи у Києві</a></li>
+                        <li><p href="#" class="city_schools">Школи у Києві</p></li>
                         <li><a href="#">Район школи №1</a></li>
                         <li><a href="#">Район школи №2</a></li>
                         <li><a href="#">Район школи №3</a></li>
-                        <li><a href="#">Школи в інших містах</a></li>
+                        <li><p href="#" class="other_city_schools">Школи в інших містах</p></li>
+                        <li><a href="#">Район школи №3</a></li>
+                        <li><a href="#">Район школи №3</a></li>
                         <li><a href="#">Район школи №3</a></li>
                     </ul>
                 </li>
@@ -109,94 +111,53 @@
 </section>
 
     <section class="helping_section">
-        <div class="helping_info">
-            <h2>Як ми допомогаємо дітям стати успішними</h2>
-            <p>Тримаємо високі стандарти якості освіти, адже розуміємо, навіщо вона потрібна</p>
+        <div class="helping_section">
+            <div class="helping_info">
+                <h2>Як ми допомагаємо дітям стати успішними</h2>
+                <p>Тримаємо високі стандарти якості освіти, адже розуміємо, навіщо вона потрібна</p>
+            </div>
+            <div class="helping_cards">
+                <div class="card">
+                    <h3>Ліцензований заклад освіти 1-12 кл.</h3>
+                    <p>В закладі проводиться державна підсумкова атестація учнів та видається атестат державного зразка.</p>
+                    <button class="read_more_btn">Дізнатися більше
+                        <img alt="" src="../img/arrow.svg">
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>Застосовуємо сучасні освітні технології</h3>
+                    <p>STEM-підхід, тематичні тижні, хвильові занурення, навчання через ігри та розв'язання конкретних практичних задач.</p>
+                    <button class="read_more_btn">Дізнатися більше
+                        <img  alt="" src="../img/arrow.svg">
+                    </button>
+                </div>
+                <div class="card">
+                    <h3>Посилена англійська, математика та логіка</h3>
+                    <p>Ці предмети ми даємо за поглибленими програмами, поступово готуючи учнів до вступу в університети.</p>
+                    <button class="read_more_btn">Дізнатися більше
+                        <img alt="" src="../img/arrow.svg">
+                    </button>
+                </div>
+
+                <div class="helping_image-left">
+                    <img src="../img/kids_learning.jpg" alt="Kids Learning">
+                </div>
+
+                <div class="card">
+                    <h3>Контроль якості освіти</h3>
+                    <p>Беремо участь у зовнішніх олімпіадах та проводимо регулярні тестування для учнів і прозорі звіти для батьків.</p>
+                    <button class="read_more_btn">Дізнатися більше
+                        <img alt="" src="../img/arrow.svg">
+                    </button>
+                </div>
+
+                <div class="helping_image-right">
+                    <img src="../img/kids_learning-2.jpg" alt="Kids Learning">
+                </div>
+            </div>
         </div>
 
-        <div class="helping_cards">
-            <table>
-                <tr>
-                    <td>
-                        <div class="card">
-                            <h3>Ліцензований заклад освіти 1-12 кл.</h3>
-                            <p>В закладі проводиться державна підсумкова атестація учнів та видається атестат державного зразка.</p>
-                            <div class="frame-parent">
-                                <div class="parent">
-                                    <button class="read_more_btn">
-                                        Дізнатися більше
-                                        <img class="frame-child" alt="" src="../img/arrow.svg">
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card">
-                            <h3>Застосовуємо сучасні освітні технології</h3>
-                            <p>STEM-підхід, тематичні тижні, хвильові занурення, навчання через ігри та розв'язання конкретних практичних задач.</p>
-                            <div class="frame-parent">
-                                <div class="parent">
-                                    <button class="read_more_btn">
-                                        Дізнатися більше
-                                        <img class="frame-child" alt="" src="../img/arrow.svg">
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card">
-                            <h3>Посилена англійська, математика та логіка</h3>
-                            <p>Ці предмети ми даємо за поглибленими програмами, поступово готуючи учнів до вступу в університети.</p>
-                            <div class="frame-parent">
-                                <div class="parent">
-                                    <button class="read_more_btn">
-                                        Дізнатися більше
-                                        <img class="frame-child" alt="" src="../img/arrow.svg">
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-
-                    <td rowspan="2">
-                        <div class="helping_image">
-                            <img src="../img/kids_learning-2.jpg" alt="Kids Learning">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <div class="helping_image">
-                            <img src="../img/kids_learning.jpg" alt="Kids Learning">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card">
-                            <h3>Контроль якості освіти</h3>
-                            <p>Беремо участь у зовнішніх олімпіадах та проводимо регулярні тестування для учнів і прозорі звіти для батьків.</p>
-                            <div class="frame-parent">
-                                <div class="parent">
-                                    <button class="read_more_btn">
-                                        Дізнатися більше
-                                        <img class="frame-child" alt="" src="../img/arrow.svg">
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
-
-
-        </div>
-
-
-        <div class="helping_cards">
-
-        </div>
     </section>
 
 
