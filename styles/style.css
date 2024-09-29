@@ -1,3 +1,42 @@
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+@import '../fonts/roboto-webfont/style.css';
+@import '../fonts/impact-webfont/style.css';
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +52,7 @@ html {
 .header_section {
     position: relative;
     background: url('../img/header_picture.png') lightgray 50% / cover no-repeat;
-    width: 1920px;
+    width: 100%;
     height: 980px;
 }
 
@@ -33,7 +72,7 @@ html {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 50px 1577px 36px 65px;
+    padding: 50px 0 36px 65px;
     z-index: 2;
 }
 
@@ -64,7 +103,7 @@ html {
 .school_info {
     display: flex;
     justify-content: space-around;
-    color: var(--100, #FFF);
+    color: #FFFFFF;
     font-family: "Roboto", sans-serif;
     font-size: 22px;
     font-style: normal;
@@ -113,8 +152,8 @@ html {
 
 .read_next_button {
     border-radius: 35px;
-    border: 1px solid var(--1100, #883CDA);
-    background: var(--1100, #883CDA);
+    border: 1px solid #883CDA;
+    background: #883CDA;
     padding: 15px 25px;
     font-size: 18px;
     cursor: pointer;
@@ -141,7 +180,7 @@ html {
     font-size: 18px;
     font-style: normal;
     top: 23px;
-    padding: 23px 92px 79px 1483px;
+    padding: 23px 92px 79px 1080px;
 }
 
 
@@ -156,10 +195,33 @@ html {
     position: relative;
     z-index: 3;
     height: 40px;
-    left: 784px;
+    left: 25%;
     top: -30px;
     width: 860px;
 }
+
+.main_menu li {
+    position: relative;
+    z-index: 3;
+    transition: background-color 0.3s ease;
+}
+
+.main_menu a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    z-index: 3;
+    padding: 10px 20px;
+    line-height: 1;
+}
+
+.main_menu a:hover, .main_menu li:hover {
+    background-color: #883CDA; /* Purple background on hover */
+    border-radius: 15px; /* Rounded corners for the highlight */
+    color: #fff; /* Ensure text remains white */
+    text-decoration: none;
+}
+
 
 .city_schools, .other_city_schools {
     position: relative;
@@ -173,23 +235,6 @@ html {
     padding: 0 15px 0 20px;
 }
 
-.main_menu li {
-    position: relative;
-    z-index: 3;
-}
-
-.main_menu a {
-    text-decoration: none;
-    font-size: 20px; /* збільште розмір шрифту */
-    color: #fff;
-    z-index: 3;
-    padding: 0 15px 0 20px;
-    line-height: 1;
-}
-
-.main_menu a:hover {
-    text-decoration: underline;
-}
 
 .dropdown:hover .dropdown_content {
     display: block;
@@ -244,8 +289,8 @@ html {
     top: 46%;
     transform: translateY(-92%);
     border-radius: 35px;
-    border: 1px solid var(--1100, #883CDA);
-    background: var(--1100, #883CDA);
+    border: 1px solid #883CDA;
+    background:#883CDA;
     padding: 15px 25px;
     font-size: 18px;
     cursor: pointer;
@@ -270,37 +315,27 @@ html {
 .top-line {
     position: absolute;
     top: -40px;
-    left: 49.5%;
+    left: 35%;
     transform: translateX(-15%);
     z-index: 2;
 }
 
-.bottom-line {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-20%);
-    z-index: 2;
-}
-
-.half-circle {
-    position: absolute;
-    left: 40%;
-    transform: translateY(-133.5%);
-    z-index: 2;
-}
 
 .metrics_section {
     padding: 50px 0;
+    width: 100%;
 }
 
 .metrics_content {
-    display: flex;
     justify-content: normal;
     align-items: flex-start;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 0 0 240px;
     gap: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    /*align-items: center;*/
 }
 
 .metrics_info {
@@ -363,41 +398,41 @@ html {
 }
 
 .stat_item:nth-child(1) {
-    background-color: #FF6B6B;
+    background-color: #FB7C84;
     color: white;
     margin: 40px 26px 32px 0;
 }
 
 .stat_item:nth-child(2) {
-    background-color: #FFC107;
+    background-color: #FFB865;
     color: white;
     height: 196px;
     margin: 40px 26px 32px 0;
 }
 
 .stat_item:nth-child(3) {
-    background-color: #8BC34A;
+    background-color: #D4EE47;
     color: white;
     height: 196px;
     margin: 40px 26px 32px 0;
 }
 
 .stat_item:nth-child(4) {
-    background-color: #00BCD4;
+    background-color: #6ED6A4;
     color: white;
     height: 196px;
     margin: 0 26px 32px 0;
 }
 
 .stat_item:nth-child(5) {
-    background-color: #9C27B0;
+    background-color: #883CDA;
     color: white;
     height: 196px;
     margin: 0 26px 32px 0;
 }
 
 .stat_item:nth-child(6) {
-    background-color: #2196F3;
+    background-color: #5AC4FF;
     color: white;
     height: 196px;
     margin: 0 26px 32px 0;
@@ -418,9 +453,9 @@ html {
 
 
 .helping_section {
-    padding: 50px 0;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 140px 0 140px 9%;
+    width: 100%;
 }
 
 .helping_info {
@@ -434,6 +469,7 @@ html {
     color: #000;
     text-align: left;
     margin-bottom: 10px;
+    width: 541px;
 }
 
 .helping_info p {
@@ -572,11 +608,11 @@ html {
     top: 0px;
     left: 713px;
     border-radius: 35px 0px 0px 35px;
-    width: 968px;
     height: 716px;
     object-fit: cover;
     max-width: 100%;
     overflow: hidden;
+    width: min(53%, 967px);
 }
 .overlay-image {
     position: absolute;
@@ -634,8 +670,8 @@ html {
     font-size: 16px;
     line-height: 133.19%;
 }
-.image-container {
-    width: 100%;
+.help-family {
+    width: 88.4%;
     position: relative;
     height: 716px;
     text-align: left;
@@ -644,15 +680,16 @@ html {
     font-family: "Roboto", sans-serif;
     display: flex;
     align-items: center;
+    margin: 0 auto;
 }
 
 .main_content{
-    margin: 0 0 0 240px;
-
+    /*margin: 0 0 0 240px;*/
+    margin: 0 auto;
 }
 
 .study_cost{
-    padding: 140px 0 0 0;
+    margin: 140px 12.5% 0 12.5%;
 }
 
 .study_cost h2{
@@ -676,8 +713,12 @@ html {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    margin: 40px auto;
     width: 90%;
+    margin-left: 123px;
+    margin-right: 123px;
+    margin-bottom: 140px;
+    margin-top: 108px;
+    gap: 90px;
 }
 
 .card-cost {
@@ -886,73 +927,53 @@ p strong {
     display: inline-block;
     padding-bottom: 56px;
     padding-top: 140px  ;
+
 }
 
-.choose-us {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.section-info{
+    margin: 140px 12.5% 0 12.5%;
 }
 
-.item {
-    width: 100%;
-    position: relative;
-    box-shadow: 8px -10px 23px #f1f1f1, -8px 10px 23px #f1f1f1;
-    border-radius: 35px 0px 0px 35px;
-    background-color: #fff;
-    display: flex;
+.section-info .container{
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 30px 209px 30px 40px;
-    box-sizing: border-box;
-    text-align: left;
-    font-size: 26px;
-    color: #141516;
-    font-family: Roboto, sans-serif;
-    margin: 26px 0 0 0;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 142px;
 }
 
-.item img {
-    max-width: 271px;
-    position: absolute;
-    border-radius: 0px 25px 25px 0px;
-    height: 188px;
-    object-fit: cover;
-    right: -270px;
-    top: 0;
-}
-
-.item-text {
+.section-info .block{
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
+    width: 100%;
+    gap: 109px;
+    box-shadow: 8px -10px 23px #F1F1F1, -8px 10px 23px #F1F1F1;
+    border-radius: 35px;
+    margin-bottom: 26px;
+}
+
+.section-info .block .content{
+    padding: 30px 0 30px 40px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
     gap: 102px;
 }
 
-.item-title {
-    width: 428px;
-    position: relative;
-    font-weight: 500;
-    display: inline-block;
-    height: 126px;
-    flex-shrink: 0;
+.section-info .block .content span{
+    font-family: Roboto Medium;
+    font-size: 28px;
+    line-height: normal;
+    width: 100%;
 }
 
-.item-description {
-    width: 490px;
-    position: relative;
-    font-size: 16px;
-    line-height: 133.19%;
-    display: inline-block;
-    flex-shrink: 0;
+.section-info .block .content p{
+    margin: 0;
+    width: 60%;
 }
 
 footer {
     color: white;
     padding: 40px 20px;
-    width: 1920px;
+    width: 100%;
     position: relative;
     background-color: #141516;
     height: 802px;
@@ -1099,6 +1120,3 @@ social-icons :after{
     height: 1px;
     margin: 128px 0 0 0;
 }
-
-
-
