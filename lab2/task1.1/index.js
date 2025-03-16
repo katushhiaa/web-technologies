@@ -13,7 +13,7 @@ function findMinMax(arr) {
     return {min, max};
 }
 
-let numArray = [1, 2, 3, 6, 10, 23];
+let numArray = [1, 2, 3, 6, 636, 23];
 let result = findMinMax(numArray);
 
 console.log("Максимальне: ", result.max);

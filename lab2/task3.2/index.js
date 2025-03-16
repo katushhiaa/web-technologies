@@ -1,4 +1,4 @@
-/* if-else
+
 function getSeason (month){
     if (month >= 1 && month <= 12) {
         if (month === 12 || month <= 2) {
@@ -13,7 +13,7 @@ function getSeason (month){
     } else {
             return "Такого місяця не існує"
     }
-}*/
+}
 
 
 /* ?
@@ -25,8 +25,8 @@ const getSeason = (month) =>
              "Осінь";
 */
 
-/*console.log(getSeason(2))
+console.log(getSeason(2))
 console.log(getSeason(12))
 console.log(getSeason(6))
 console.log(getSeason(5))
-console.log(getSeason(11))*/
+console.log(getSeason(11))

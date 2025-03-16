@@ -1,4 +1,4 @@
-/* if - else
+
 function studentGradeCheck(grade){
     if (grade >= 90 && grade <= 100) {
         return "Відмінно";
@@ -10,7 +10,7 @@ function studentGradeCheck(grade){
         return "Незадовільно";
     }
 }
-*/
+
 
 /*?
 
@@ -21,7 +21,7 @@ const studentGradeCheck = (grade) =>
         "Незадовільно";
 */
 
-/*console.log(studentGradeCheck(65));
+console.log(studentGradeCheck(65));
 console.log(studentGradeCheck(90));
 console.log(studentGradeCheck(45));
-console.log(studentGradeCheck(75));*/
+console.log(studentGradeCheck(75));
