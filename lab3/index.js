@@ -81,7 +81,7 @@ const findCountOfVowelLetters = str => {
     const vowels = "аеєиіїоуюяАЕЄИІЇОУЮЯaeiouAEIOU"
     let count = 0
 
-    for( let i = 0, len = str.length ; i < len; i++ ) {
+    for( let i = 0; i < str.length; i++ ) {
         if(vowels.includes(str[i])){
             count++;
         }
