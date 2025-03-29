@@ -1,0 +1,51 @@
+.bulb-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.bulb {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.7);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.base {
+    width: 40px;
+    height: 50px;
+    background: gray;
+    border-radius: 10px;
+    margin-top: -10px;
+}
+
+.bulb.off {
+    background: #555;
+    box-shadow: none;
+}
+
+.simpleBulb {
+    background: yellow;
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.7);
+}
+
+.economyBulb {
+    background: lightgreen;
+    box-shadow: 0 0 20px rgba(144, 238, 144, 0.7);
+}
+
+.ledBulb {
+    background: lightblue;
+    box-shadow: 0 0 40px rgba(173, 216, 230, 0.7);
+}
+
+#turn_on_button {
+    margin: 10px;
+}
+
+#bulbType {
+    margin: 10px;
+}
