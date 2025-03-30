@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Цифровий годинник</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+<div id="clock">
+    <span id="hours">00</span>
+    <span>:</span>
+    <span id="minutes">00</span>
+    <span>:</span>
+    <span id="seconds">00</span>
+</div>
+
+<h2>Таймер зворотного відліку</h2>
+<input type="datetime-local" id="countdown-input">
+<button onclick="startCountdown()">Старт</button>
+<div id="countdown"></div>
+
+<h2>Календар</h2>
+<input type="month" id="monthPicker">
+<h2 id="monthYear"></h2>
+<div class="calendar" id="calendar"></div>
+
+
+<h2>Скільки залишилось до дня народження?</h2>
+
+<label>Виберіть свій день народження:</label><br><br>
+<input type="date" id="birthday"><br>
+<p id="result"></p>
+
+
+
+<script src="index3.js"></script>
+</body>
+</html>

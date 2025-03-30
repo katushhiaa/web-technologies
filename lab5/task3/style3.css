@@ -1,0 +1,47 @@
+#clock {
+    font-size: 150px;
+    width: 1000px;
+    height: 200px;
+    margin: 200px auto;
+    padding-top: 15px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: pink;
+}
+
+#seconds {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+#countdown, #birthday-result {
+    margin-top: 20px;
+    font-size: 20px;
+}
+input {
+    margin: 5px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+    gap: 5px;
+    justify-content: center;
+}
+.day {
+    padding: 10px;
+    border: 1px solid #999;
+}
+.header {
+    font-weight: bold;
+    background: #eee;
+}
