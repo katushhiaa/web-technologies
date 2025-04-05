@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список товарів</title>
+    <link rel="stylesheet" href="task1.css">
+</head>
+<body>
+<header>Список товарів</header>
+
+<div id="empty-message" class="empty">
+    Наразі список товарів пустий. Додайте новий товар.
+</div>
+
+<div id="product-list">
+
+</div>
+
+<button id="add-product-btn">Додати новий товар</button>
+
+<div id="modal-window">
+    <div class="modal-content">
+        <form id="product-form">
+            <h3>Новий товар</h3>
+            <input type="text" id="name" placeholder="Назва товару" required />
+            <input type="number" id="price" placeholder="Ціна (грн)" required min="1" />
+            <input type="text" id="category" placeholder="Категорія" required />
+            <input type="url" id="image" placeholder="URL зображення" required />
+            <br /><br />
+            <button type="submit">Зберегти</button>
+            <button type="button" onclick="closeModalWindow()">Скасувати</button>
+        </form>
+    </div>
+    
+</div>
+
+
+</body>
+
+<script src="task1.js"></script>
+</html>
