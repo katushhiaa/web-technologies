@@ -16,8 +16,8 @@ header {
 #product-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 20px;
+    justify-content: center;
 }
 
 #add-product-btn {
@@ -92,7 +92,140 @@ header {
         transform: scale(1);
     }
 }
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+.toast.show {
+    opacity: 1;
+}
 
+.product button {
+    margin-top: 8px;
+    margin-right: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.product button:nth-child(6) {
+    background-color: #2196F3;
+    color: white;
+}
+
+.product button:nth-child(7) {
+    background-color: #f44336;
+    color: white;
+}
+
+.product button:hover {
+    opacity: 0.85;
+}
+
+.product {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 300px;
+    flex: 1 1 calc(33.333% - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.02);
+}
+
+.product .actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.product .actions button {
+    flex: 1;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.filters {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filters button {
+    padding: 8px 14px;
+    border: none;
+    background-color: #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.filters button:hover {
+    background-color: #ddd;
+}
+
+.sorts {
+    margin: 10px 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.sorts button {
+    padding: 8px 14px;
+    border: none;
+    background-color: #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.sorts button:hover {
+    background-color: #ccc;
+}
+
+
+@media (max-width: 900px) {
+    .product {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .product {
+        flex: 1 1 100%;
+    }
+}
 
 .product img {
     max-height: 150px;
@@ -100,4 +233,26 @@ header {
     margin-top: 10px;
     border-radius: 4px;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.product {
+    animation: fadeIn 0.3s ease-out;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.product.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
 

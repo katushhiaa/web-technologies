@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="task1.css">
 </head>
 <body>
-<header>Список товарів</header>
+<header>
+    Список товарів
+    <div id="total-price">Загальна вартість: 0 грн</div>
+</header>
+
 
 <div id="empty-message" class="empty">
     Наразі список товарів пустий. Додайте новий товар.
@@ -33,6 +37,18 @@
     </div>
     
 </div>
+<div id="filters" class="filters"></div>
+<div id="sorts" class="sorts">
+    <button onclick="sortByPrice()">Сортувати за ціною</button>
+    <button onclick="sortByCreated()">Сортувати за датою створення</button>
+    <button onclick="sortByUpdated()">Сортувати за датою оновлення</button>
+    <button onclick="resetSort()">Скинути сортування</button>
+</div>
+
+
+
+<div id="toast" class="toast"></div>
+
 
 
 </body>
