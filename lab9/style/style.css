@@ -1,0 +1,226 @@
+body {
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    width: 360px;
+    position: relative;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: none;
+    text-align: center;
+    font-weight: 500;
+}
+
+.button-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.up-button {
+    width: 50%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+    color: #555;
+}
+
+.up-button.active {
+    border-bottom: 3px solid #3498db;
+    color: #3498db;
+}
+
+
+.form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #666;
+    padding-left: 2px;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+.input-wrapper input,
+select {
+    width: 100%;
+    padding: 12px;
+    padding-right: 40px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-wrapper input:focus,
+select:focus {
+    background-color: #fff;
+    border-color: #3498db;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+.password-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 40px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.password-container input:focus {
+    background-color: #fff;
+    border-color: #3498db;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-password:hover {
+    transform: translateY(-50%) scale(1.2);
+    color: #3498db;
+}
+
+input.is-valid {
+    border-color: #28a745;
+    background-color: #f6fffa;
+}
+
+input.is-invalid {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+.success-text {
+    color: #28a745;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.error-text {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select:focus {
+    background-color: #fff;
+}
+
+.input-wrapper .icon {
+    position: absolute;
+    right: 10px;
+    top: 32%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.sex-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.sex-options label {
+    font-size: 14px;
+    color: #555;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .button-box {
+        gap: 5px;
+    }
+}

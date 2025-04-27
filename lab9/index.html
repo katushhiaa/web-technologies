@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup/Login Form</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+<div class="container">
+
+    <div id="successMessage" class="success-message">
+        Successfully registered!
+    </div>
+
+    <div class="form-box">
+        <div class="button-box">
+            <button class="up-button" id="signupBtn" onclick="showSignup()">Signup</button>
+            <button class="up-button" id="loginBtn" onclick="showLogin()">Login</button>
+        </div>
+
+        <form id="signupForm" class="form">
+            <h2>Create an account</h2>
+
+            <!-- First Name -->
+            <label for="signupFirstName">First Name</label>
+            <div class="input-wrapper">
+                <input type="text" id="signupFirstName" placeholder="Enter first name">
+                <span class="icon" id="signupFirstNameIcon"></span>
+                <div id="signupFirstNameError" class="error-text"></div>
+            </div>
+
+
+            <label for="signupLastName">Last Name</label>
+            <div class="input-wrapper">
+                <input type="text" id="signupLastName" placeholder="Enter last name">
+                <span class="icon" id="signupLastNameIcon"></span>
+                <div id="signupLastNameError" class="error-text"></div>
+            </div>
+
+            <label for="signupEmail">Email</label>
+            <div class="input-wrapper">
+                <input type="email" id="signupEmail" placeholder="Enter email">
+                <span class="icon" id="signupEmailIcon"></span>
+                <div id="signupEmailError" class="error-text"></div>
+            </div>
+
+            <label for="signupPassword">Password</label>
+            <div class="input-wrapper">
+                <input type="password" id="signupPassword" placeholder="Enter password">
+                <span class="toggle-password" onclick="togglePassword('signupPassword', this)">👁️</span>
+                <div id="signupPasswordError" class="error-text"></div>
+            </div>
+
+            <label for="signupConfirmPassword">Confirm Password</label>
+            <div class="input-wrapper">
+                <input type="password" id="signupConfirmPassword" placeholder="Confirm password">
+                <span class="toggle-password" onclick="togglePassword('signupConfirmPassword', this)">👁️</span>
+                <div id="signupConfirmPasswordError" class="error-text"></div>
+            </div>
+
+            <label for="signupPhone">Phone</label>
+            <div class="input-wrapper">
+                <input type="text" id="signupPhone" placeholder="Enter phone (+380...)">
+                <span class="icon" id="signupPhoneIcon"></span>
+                <div id="signupPhoneError" class="error-text"></div>
+            </div>
+
+            <label for="signupBirthDate">Date of Birth</label>
+            <div class="input-wrapper">
+                <input type="date" id="signupBirthDate">
+                <span class="icon" id="signupBirthDateIcon"></span>
+                <div id="signupBirthDateError" class="error-text"></div>
+            </div>
+
+            <label>Sex</label>
+            <div class="sex-options">
+                <input type="radio" id="male" name="signupSex" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="signupSex" value="female">
+                <label for="female">Female</label>
+            </div>
+            <div id="signupSexError" class="error-text"></div>
+
+            <label for="signupCountry">Country</label>
+            <select id="signupCountry" onchange="populateCities()">
+                <option value="">Select country</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="Poland">Poland</option>
+                <option value="Germany">Germany</option>
+            </select>
+            <div id="signupCountryError" class="error-text"></div>
+
+            <label for="signupCity">City</label>
+            <select id="signupCity" disabled>
+                <option value="">Select city</option>
+            </select>
+            <div id="signupCityError" class="error-text"></div>
+
+            <button type="submit" class="submit-btn">Signup</button>
+        </form>
+
+        <form id="loginForm" class="form hidden">
+            <h2>Login here</h2>
+
+            <label for="loginUsername">Username</label>
+            <div class="input-wrapper">
+                <input type="text" id="loginUsername" placeholder="Enter username">
+                <span class="icon" id="loginUsernameIcon"></span>
+                <div id="loginUsernameError" class="error-text"></div>
+            </div>
+
+
+            <label for="loginPassword">Password</label>
+            <div class="input-wrapper">
+                <input type="password" id="loginPassword" placeholder="Enter password">
+                <span class="toggle-password" onclick="togglePassword('loginPassword', this)">👁️</span>
+                <div id="loginPasswordError" class="error-text"></div>
+            </div>
+
+
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Remember Me</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+    </div>
+</div>
+
+<script src="./js/index.js"></script>
+</body>
+</html>
