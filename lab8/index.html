@@ -1,68 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Memory Pair Game</title>
+    <title>Memory Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <h1>Memory Pair Game</h1>
+
+<header class="header">
+    <h1>Memory Game</h1>
 </header>
 
-<section class="settings">
-    <h2>Налаштування гри</h2>
-    <div>
-        <label>Розмір поля:
-            <select id="board-size">
-                <option value="4x3">4 x 3</option>
-                <option value="4x4">4 x 4</option>
-                <option value="6x6">6 x 6</option>
-            </select>
-        </label>
-    </div>
+<main class="container">
 
-    <div>
-        <label>Складність:
-            <select id="difficulty">
-                <option value="easy">Легко (3 хв)</option>
-                <option value="normal">Нормально (2 хв)</option>
-                <option value="hard">Важко (1 хв)</option>
-            </select>
-        </label>
-    </div>
+    <section class="settings">
+        <h2>Налаштування гри</h2>
+        <form id="settings-form">
+            <div class="form-group">
+                <label>Розмір поля:
+                    <select id="board-size">
+                        <option value="4x4">4x4</option>
+                        <option value="6x6">6x6</option>
+                        <option value="8x8">8x8</option>
+                    </select>
+                </label>
+            </div>
 
-    <div id="players-settings">
-        <label>Кількість гравців:
-            <select id="player-count">
-                <option value="1">1 гравець</option>
-                <option value="2">2 гравці</option>
-            </select>
-        </label>
-        <input type="text" id="player1-name" placeholder="Ім'я гравця 1">
-        <input type="text" id="player2-name" placeholder="Ім'я гравця 2" style="display:none;">
-    </div>
+            <div class="form-group">
+                <label>Складність:
+                    <select id="difficulty">
+                        <option value="easy">Легка (3 хв)</option>
+                        <option value="normal">Нормальна (2 хв)</option>
+                        <option value="hard">Важка (1 хв)</option>
+                    </select>
+                </label>
+            </div>
 
-    <div>
-        <label>Кількість раундів:
-            <input type="number" id="rounds" min="1" value="1">
-        </label>
-    </div>
+            <div class="form-group">
+                <label>Кількість гравців:
+                    <select id="players">
+                        <option value="1">1 гравець</option>
+                        <option value="2">2 гравці</option>
+                    </select>
+                </label>
+            </div>
 
-    <button id="start-button">Розпочати гру</button>
-    <button id="reset-settings">Скинути налаштування</button>
-</section>
+            <div class="form-group" id="players-names">
+                <label>Гравець 1: <input type="text" id="player1" value="Гравець 1"></label>
+                <label id="player2-label" class="hidden">Гравець 2: <input type="text" id="player2" value="Гравець 2"></label>
+            </div>
 
-<section class="game-info">
-    <div id="timer">Час: 00:00</div>
-    <div id="moves">Ходи: 0</div>
-    <div id="current-player"></div>
-</section>
+            <div class="form-group">
+                <label>Кількість раундів:
+                    <input type="number" id="rounds" min="1" value="1">
+                </label>
+            </div>
 
-<section class="game-board" id="game-board"></section>
+            <div class="form-buttons">
+                <button type="button" id="start-game" class="btn">Розпочати гру</button>
+                <button type="button" id="reset-settings" class="btn secondary">Скинути налаштування</button>
+            </div>
+        </form>
+    </section>
 
-<button id="restart-button" style="display:none;">Рестарт гри</button>
+    <section class="game-info">
+        <div>⏳ Таймер: <span id="timer">00:00</span></div>
+        <div>🎯 Ходи: <span id="moves">0</span></div>
+        <div id="current-player"></div>
+    </section>
 
-</body>
+    <section class="memory-game"></section>
+
+    <section id="result" class="hidden"></section>
+
+    <button id="restart" class="btn hidden">Рестарт</button>
+
+</main>
+
 <script src="script.js"></script>
+</body>
 </html>

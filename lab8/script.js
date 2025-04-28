@@ -1,176 +1,237 @@
-const board = document.getElementById('game-board');
+// ===== Ініціалізація глобальних змінних =====
+const gameBoard = document.querySelector('.memory-game');
+const restartButton = document.getElementById('restart');
+const startButton = document.getElementById('start-game');
+const resetButton = document.getElementById('reset-settings');
+const movesCounter = document.getElementById('moves');
 const timerDisplay = document.getElementById('timer');
-const movesDisplay = document.getElementById('moves');
+const playersSelect = document.getElementById('players');
+const player2Label = document.getElementById('player2-label');
 const currentPlayerDisplay = document.getElementById('current-player');
+const resultDisplay = document.getElementById('result');
 
-const images = Array.from({ length: 20 }, (_, i) => `assets/img${i + 1}.png`);
+const imagesList = [
+    'img1.png', 'img2.png', 'img3.png', 'img4.png', 'img5.png', 'img6.png',
+    'img7.png', 'img8.png', 'img9.png', 'img10.png'
+];
 
-let cards = [];
-let flippedCards = [];
-let matchedPairs = 0;
+let playersData = [];
+let roundsData = [];
+let totalRounds = 1;
+let currentRound = 1;
 let moves = 0;
-let timer;
-let timeRemaining;
-let currentPlayer = 1;
-let playerMoves = [0, 0];
-let totalPairs;
-let isTwoPlayers = false;
+let matchedPairs = 0;
+let flippedCards = [];
+let totalPairs = 0;
+let countdown;
+let boardSize;
+let players;
 
-function createCards(size) {
-    const totalCards = size.rows * size.cols;
-    const neededImages = images.slice(0, totalCards / 2); // беремо тільки потрібні картинки
-    const cardValues = [];
+// ====== Функціональні частини гри ======
 
-    neededImages.forEach((_, index) => {
-        cardValues.push(index, index); // кожну пару по дві
+// Ініціалізація гравців
+function initPlayers() {
+    const name1 = document.getElementById('player1').value || 'Гравець 1';
+    const name2 = document.getElementById('player2').value || 'Гравець 2';
+
+    return players === 2
+        ? [{ name: name1, moves: 0 }, { name: name2, moves: 0 }]
+        : [{ name: name1, moves: 0 }];
+}
+
+// Запуск гри
+function startGame() {
+    if (currentRound === 1) {
+        players = +document.getElementById('players').value;
+        totalRounds = parseInt(document.getElementById('rounds').value, 10);
+        playersData = initPlayers();
+        roundsData = [];
+    }
+
+    const size = document.getElementById('board-size').value;
+    boardSize = size;
+    setupBoard();
+    startTimer();
+    resetRoundVariables();
+}
+
+// Побудова ігрового поля
+function setupBoard() {
+    gameBoard.innerHTML = '';
+    const [rows, cols] = boardSize.split('x').map(Number);
+    totalPairs = (rows * cols) / 2;
+    const cards = createShuffledCards(totalPairs);
+
+    gameBoard.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+
+
+    cards.forEach(img => {
+        const card = document.createElement('div');
+        card.classList.add('memory-card');
+        card.dataset.framework = img;
+        card.innerHTML = `
+      <img class="front-face" src="assets/${img}" alt="Image" />
+      <img class="back-face" src="assets/back.jpg" alt="Back" />
+    `;
+        gameBoard.appendChild(card);
     });
 
-    return shuffle(cardValues).map(value => ({
-        value,
-        flipped: false,
-        matched: false
-    }));
+    document.querySelectorAll('.memory-card').forEach(card => card.addEventListener('click', flipCard));
+}
+
+function createShuffledCards(pairs) {
+    const selectedImages = [...imagesList].slice(0, pairs);
+    return shuffle([...selectedImages, ...selectedImages]);
 }
 
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
 
-function renderBoard(size) {
-    board.style.gridTemplateColumns = `repeat(${size.cols}, 1fr)`;
-    board.innerHTML = '';
-
-    cards.forEach((card, index) => {
-        const cardElement = document.createElement('div');
-        cardElement.classList.add('card');
-        cardElement.dataset.index = index;
-
-        cardElement.innerHTML = `
-            <div class="card-inner">
-                <div class="card-front"></div>
-                <div class="card-back" style="background-image: url('${images[card.value]}');"></div>
-            </div>
-        `;
-
-        cardElement.addEventListener('click', () => flipCard(index));
-        board.appendChild(cardElement);
-    });
-}
-
-
-function flipCard(index) {
-    const card = cards[index];
-    if (card.flipped || flippedCards.length >= 2) return;
-
-    card.flipped = true;
-    flippedCards.push(index);
-
-    const cardInner = document.querySelector(`.card[data-index="${index}"] .card-inner`);
-    cardInner.classList.add('flip');
-
-    if (flippedCards.length === 2) {
-        setTimeout(checkMatch, 1000);
-    }
-}
-
-function checkMatch() {
-    const [firstIndex, secondIndex] = flippedCards;
-    const firstCard = cards[firstIndex];
-    const secondCard = cards[secondIndex];
-
-    if (firstCard.value === secondCard.value) {
-        firstCard.matched = true;
-        secondCard.matched = true;
-        matchedPairs++;
-    } else {
-        setTimeout(() => {
-            firstCard.flipped = false;
-            secondCard.flipped = false;
-
-            const firstCardInner = document.querySelector(`.card[data-index="${firstIndex}"] .card-inner`);
-            const secondCardInner = document.querySelector(`.card[data-index="${secondIndex}"] .card-inner`);
-
-            firstCardInner.classList.remove('flip');
-            secondCardInner.classList.remove('flip');
-        }, 500); // невелика затримка перед поверненням назад
-    }
-
-    flippedCards = [];
-    moves++;
-
-    if (isTwoPlayers) {
-        playerMoves[currentPlayer - 1]++;
-        currentPlayer = currentPlayer === 1 ? 2 : 1;
-        currentPlayerDisplay.textContent = `Хід: Гравець ${currentPlayer}`;
-    } else {
-        movesDisplay.textContent = `Ходи: ${moves}`;
-    }
-
-    checkWin();
-}
-
-function checkWin() {
-    if (matchedPairs === totalPairs) {
-        clearInterval(timer);
-        setTimeout(() => {
-            alert("Вітаємо! Ви знайшли всі пари!");
-        }, 300);
-    }
-}
-
-function startGame() {
-    const size = getBoardSize();
-    totalPairs = (size.rows * size.cols) / 2;
-    cards = createCards(size);
-    flippedCards = [];
-    matchedPairs = 0;
-    moves = 0;
-    playerMoves = [0, 0];
-    currentPlayer = 1;
-    isTwoPlayers = document.getElementById('player-count').value === '2';
-    currentPlayerDisplay.textContent = isTwoPlayers ? `Хід: Гравець 1` : '';
-    startTimer();
-    renderBoard(size);
-
-    document.getElementById('restart-button').style.display = 'inline-block';
-}
-
 function startTimer() {
-    clearInterval(timer);
-    const difficulty = document.getElementById('difficulty').value;
-    timeRemaining = difficulty === 'easy' ? 180 : difficulty === 'normal' ? 120 : 60;
-    updateTimer();
-    timer = setInterval(() => {
-        timeRemaining--;
-        updateTimer();
-        if (timeRemaining <= 0) {
-            clearInterval(timer);
-            alert('Час вичерпано!');
+    clearInterval(countdown);
+    timerDisplay.textContent = '00:00';
+    let minutes = getMinutesByDifficulty();
+    let time = minutes * 60;
+
+    countdown = setInterval(() => {
+        let mins = Math.floor(time / 60);
+        let secs = time % 60;
+        timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        if (--time < 0) {
+            clearInterval(countdown);
+            finishRound();
         }
     }, 1000);
 }
 
-function updateTimer() {
-    const minutes = Math.floor(timeRemaining / 60);
-    const seconds = timeRemaining % 60;
-    timerDisplay.textContent = `Час: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+function getMinutesByDifficulty() {
+    const difficulty = document.getElementById('difficulty').value;
+    if (difficulty === 'easy') return 3;
+    if (difficulty === 'normal') return 2;
+    return 1;
 }
 
-function getBoardSize() {
-    const size = document.getElementById('board-size').value;
-    const [cols, rows] = size.split('x').map(Number);
-    return { cols, rows };
+function flipCard() {
+    if (flippedCards.length === 2 || this.classList.contains('flip')) return;
+
+    this.classList.add('flip');
+    flippedCards.push(this);
+
+    if (flippedCards.length === 2) {
+        moves++;
+        movesCounter.textContent = moves;
+        checkForMatch();
+    }
 }
 
-document.getElementById('start-button').addEventListener('click', startGame);
-document.getElementById('restart-button').addEventListener('click', startGame);
-document.getElementById('reset-settings').addEventListener('click', () => {
-    document.getElementById('board-size').value = '4x3';
-    document.getElementById('difficulty').value = 'easy';
-    document.getElementById('player-count').value = '1';
-    document.getElementById('rounds').value = 1;
-});
+function checkForMatch() {
+    const [card1, card2] = flippedCards;
 
-document.getElementById('player-count').addEventListener('change', (e) => {
-    document.getElementById('player2-name').style.display = e.target.value === '2' ? 'inline-block' : 'none';
+    if (card1.dataset.framework === card2.dataset.framework) {
+        matchedPairs++;
+        flippedCards = [];
+
+        if (matchedPairs === totalPairs) {
+            clearInterval(countdown);
+            setTimeout(finishRound, 500);
+        }
+    } else {
+        setTimeout(() => {
+            card1.classList.remove('flip');
+            card2.classList.remove('flip');
+            flippedCards = [];
+            if (players === 2) switchPlayer();
+        }, 1000);
+    }
+}
+
+function resetRoundVariables() {
+    moves = 0;
+    matchedPairs = 0;
+    flippedCards = [];
+    movesCounter.textContent = moves;
+    if (players === 2) currentPlayerDisplay.textContent = `Хід: ${playersData[0].name}`;
+    else currentPlayerDisplay.textContent = '';
+}
+
+function switchPlayer() {
+    playersData.push(playersData.shift()); // міняємо місцями гравців
+    currentPlayerDisplay.textContent = `Хід: ${playersData[0].name}`;
+}
+
+function finishRound() {
+    saveRoundResult();
+
+    if (currentRound < totalRounds) {
+        currentRound++;
+        setTimeout(startGame, 1500);
+    } else {
+        showOverallResults();
+    }
+}
+
+function saveRoundResult() {
+    const player1Moves = playersData[0].moves || moves;
+    const player2Moves = playersData[1] ? playersData[1].moves : null;
+    const winner = determineRoundWinner(player1Moves, player2Moves);
+
+    roundsData.push({
+        round: currentRound,
+        player1: player1Moves,
+        player2: player2Moves,
+        winner: winner
+    });
+}
+
+function determineRoundWinner(m1, m2) {
+    if (players === 1) return playersData[0].name;
+    return m1 <= m2 ? playersData[0].name : playersData[1].name;
+}
+
+function showOverallResults() {
+    gameBoard.innerHTML = '';
+    resultDisplay.classList.remove('hidden');
+    restartButton.classList.add('hidden');
+
+    let html = `<h2>Підсумки гри</h2>`;
+    roundsData.forEach(r => {
+        html += `<p>Раунд ${r.round}: Переможець — ${r.winner}, Ходи: ${r.player1}${r.player2 !== null ? ' / ' + r.player2 : ''}</p>`;
+    });
+
+    if (players === 2) {
+        const finalWinner = determineOverallWinner();
+        html += `<h3>Загальний переможець: ${finalWinner}</h3>`;
+    }
+
+    resultDisplay.innerHTML = html;
+}
+
+function determineOverallWinner() {
+    const wins = playersData.map(p => ({
+        name: p.name,
+        wins: roundsData.filter(r => r.winner === p.name).length
+    }));
+
+    return wins[0].wins >= wins[1].wins ? wins[0].name : wins[1].name;
+}
+
+function resetSettings() {
+    document.getElementById('settings-form').reset();
+    player2Label.style.display = 'none';
+}
+
+function showPlayer2Input() {
+    player2Label.style.display = playersSelect.value === '2' ? 'block' : 'none';
+}
+
+playersSelect.addEventListener('change', showPlayer2Input);
+startButton.addEventListener('click', () => {
+    currentRound = 1;
+    startGame();
 });
+restartButton.addEventListener('click', () => {
+    currentRound = 1;
+    startGame();
+});
+resetButton.addEventListener('click', resetSettings);
