@@ -1,237 +1,223 @@
-// ===== Ініціалізація глобальних змінних =====
-const gameBoard = document.querySelector('.memory-game');
-const restartButton = document.getElementById('restart');
-const startButton = document.getElementById('start-game');
-const resetButton = document.getElementById('reset-settings');
-const movesCounter = document.getElementById('moves');
-const timerDisplay = document.getElementById('timer');
-const playersSelect = document.getElementById('players');
-const player2Label = document.getElementById('player2-label');
-const currentPlayerDisplay = document.getElementById('current-player');
-const resultDisplay = document.getElementById('result');
+const images = Array.from({ length: 20 }, (_, i) => `assets/img${i + 1}.png`);
+const board = document.getElementById('game-board');
+const restartBtn = document.getElementById('restart-btn');
+const startGameBtn = document.getElementById('start-game');
+const resetSettingsBtn = document.getElementById('reset-settings');
+const movesSpan = document.getElementById('moves');
+const timerSpan = document.getElementById('timer');
+const currentPlayerSpan = document.getElementById('current-player');
+const rowsInput = document.getElementById('rows');
+const colsInput = document.getElementById('cols');
+const difficultySelect = document.getElementById('difficulty');
+const playersCountSelect = document.getElementById('players-count');
+const player1Input = document.getElementById('player1');
+const player2Input = document.getElementById('player2');
+const roundsInput = document.getElementById('rounds');
 
-const imagesList = [
-    'img1.png', 'img2.png', 'img3.png', 'img4.png', 'img5.png', 'img6.png',
-    'img7.png', 'img8.png', 'img9.png', 'img10.png'
-];
-
-let playersData = [];
-let roundsData = [];
-let totalRounds = 1;
+let timerInterval = null;
+let totalSeconds = 0;
 let currentRound = 1;
+let totalRounds = 1;
+let players = [];
+let currentPlayer = 0;
+let scores = [];
 let moves = 0;
-let matchedPairs = 0;
-let flippedCards = [];
-let totalPairs = 0;
-let countdown;
-let boardSize;
-let players;
 
-// ====== Функціональні частини гри ======
+const difficulties = {
+    easy: 180,
+    normal: 120,
+    hard: 60,
+};
 
-// Ініціалізація гравців
-function initPlayers() {
-    const name1 = document.getElementById('player1').value || 'Гравець 1';
-    const name2 = document.getElementById('player2').value || 'Гравець 2';
+const shuffle = (array) => [...array].sort(() => Math.random() - 0.5);
 
-    return players === 2
-        ? [{ name: name1, moves: 0 }, { name: name2, moves: 0 }]
-        : [{ name: name1, moves: 0 }];
-}
+const createCard = (src, index) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.index = index;
+    card.dataset.src = src;
 
-// Запуск гри
-function startGame() {
-    if (currentRound === 1) {
-        players = +document.getElementById('players').value;
-        totalRounds = parseInt(document.getElementById('rounds').value, 10);
-        playersData = initPlayers();
-        roundsData = [];
-    }
+    const inner = document.createElement('div');
+    inner.className = 'card-inner';
 
-    const size = document.getElementById('board-size').value;
-    boardSize = size;
-    setupBoard();
-    startTimer();
-    resetRoundVariables();
-}
+    const front = document.createElement('div');
+    front.className = 'card-front';
 
-// Побудова ігрового поля
-function setupBoard() {
-    gameBoard.innerHTML = '';
-    const [rows, cols] = boardSize.split('x').map(Number);
-    totalPairs = (rows * cols) / 2;
-    const cards = createShuffledCards(totalPairs);
+    const back = document.createElement('div');
+    back.className = 'card-back';
 
-    gameBoard.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    const img = document.createElement('img');
+    img.src = src;
+    back.appendChild(img);
 
+    inner.appendChild(front);
+    inner.appendChild(back);
+    card.appendChild(inner);
 
-    cards.forEach(img => {
-        const card = document.createElement('div');
-        card.classList.add('memory-card');
-        card.dataset.framework = img;
-        card.innerHTML = `
-      <img class="front-face" src="assets/${img}" alt="Image" />
-      <img class="back-face" src="assets/back.jpg" alt="Back" />
-    `;
-        gameBoard.appendChild(card);
+    return card;
+};
+
+const renderBoard = (shuffledImages, cols) => {
+    board.innerHTML = '';
+    board.style.gridTemplateColumns = `repeat(${cols}, 100px)`;
+    shuffledImages.forEach((src, index) => {
+        board.appendChild(createCard(src, index));
     });
+};
 
-    document.querySelectorAll('.memory-card').forEach(card => card.addEventListener('click', flipCard));
-}
+const formatTime = (seconds) => {
+    const min = String(Math.floor(seconds / 60)).padStart(2, '0');
+    const sec = String(seconds % 60).padStart(2, '0');
+    return `${min}:${sec}`;
+};
 
-function createShuffledCards(pairs) {
-    const selectedImages = [...imagesList].slice(0, pairs);
-    return shuffle([...selectedImages, ...selectedImages]);
-}
+const startTimer = (seconds, onEnd) => {
+    clearInterval(timerInterval);
+    totalSeconds = seconds;
+    timerSpan.textContent = formatTime(totalSeconds);
 
-function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
-}
-
-function startTimer() {
-    clearInterval(countdown);
-    timerDisplay.textContent = '00:00';
-    let minutes = getMinutesByDifficulty();
-    let time = minutes * 60;
-
-    countdown = setInterval(() => {
-        let mins = Math.floor(time / 60);
-        let secs = time % 60;
-        timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        if (--time < 0) {
-            clearInterval(countdown);
-            finishRound();
+    timerInterval = setInterval(() => {
+        totalSeconds--;
+        timerSpan.textContent = formatTime(totalSeconds);
+        if (totalSeconds <= 0) {
+            clearInterval(timerInterval);
+            alert("Час вичерпано!");
+            onEnd?.();
         }
     }, 1000);
-}
+};
 
-function getMinutesByDifficulty() {
-    const difficulty = document.getElementById('difficulty').value;
-    if (difficulty === 'easy') return 3;
-    if (difficulty === 'normal') return 2;
-    return 1;
-}
+const stopTimer = () => clearInterval(timerInterval);
 
-function flipCard() {
-    if (flippedCards.length === 2 || this.classList.contains('flip')) return;
+const showResults = () => {
+    let result = `Гру завершено!\n\n`;
+    players.forEach((name, i) => {
+        const totalMoves = scores[i].reduce((a, b) => a + b.moves, 0);
+        const totalTime = scores[i].reduce((a, b) => a + b.time, 0);
+        result += `${name} — Ходи: ${totalMoves}, Час: ${formatTime(totalTime)}\n`;
+    });
 
-    this.classList.add('flip');
-    flippedCards.push(this);
+    const winner = (players.length === 1)
+        ? players[0]
+        : (scores[0].reduce((a, b) => a + b.moves, 0) < scores[1].reduce((a, b) => a + b.moves, 0)
+            ? players[0]
+            : players[1]);
 
-    if (flippedCards.length === 2) {
-        moves++;
-        movesCounter.textContent = moves;
-        checkForMatch();
-    }
-}
+    result += `\n Переможець: ${winner}`;
+    alert(result);
+};
 
-function checkForMatch() {
-    const [card1, card2] = flippedCards;
+const startRound = () => {
+    const rows = parseInt(rowsInput.value);
+    const cols = parseInt(colsInput.value);
+    const totalCards = rows * cols;
 
-    if (card1.dataset.framework === card2.dataset.framework) {
-        matchedPairs++;
-        flippedCards = [];
+    const neededImages = shuffle(images).slice(0, totalCards / 2);
+    const shuffled = shuffle([...neededImages, ...neededImages]);
 
-        if (matchedPairs === totalPairs) {
-            clearInterval(countdown);
-            setTimeout(finishRound, 500);
-        }
-    } else {
-        setTimeout(() => {
-            card1.classList.remove('flip');
-            card2.classList.remove('flip');
-            flippedCards = [];
-            if (players === 2) switchPlayer();
-        }, 1000);
-    }
-}
+    renderBoard(shuffled, cols);
+    startTimer(difficulties[difficultySelect.value], endGame);
 
-function resetRoundVariables() {
+    let flipped = [];
+    let lock = false;
     moves = 0;
-    matchedPairs = 0;
-    flippedCards = [];
-    movesCounter.textContent = moves;
-    if (players === 2) currentPlayerDisplay.textContent = `Хід: ${playersData[0].name}`;
-    else currentPlayerDisplay.textContent = '';
-}
 
-function switchPlayer() {
-    playersData.push(playersData.shift()); // міняємо місцями гравців
-    currentPlayerDisplay.textContent = `Хід: ${playersData[0].name}`;
-}
+    movesSpan.textContent = '0';
+    currentPlayerSpan.textContent = players[currentPlayer];
 
-function finishRound() {
-    saveRoundResult();
+    const handleClick = (e) => {
+        const card = e.currentTarget;
+        if (lock || card.classList.contains('flipped')) return;
 
-    if (currentRound < totalRounds) {
-        currentRound++;
-        setTimeout(startGame, 1500);
-    } else {
-        showOverallResults();
+        card.classList.add('flipped');
+        flipped.push(card);
+
+        if (flipped.length === 2) {
+            lock = true;
+            moves++;
+            movesSpan.textContent = moves;
+
+            const [first, second] = flipped;
+            if (first.dataset.src === second.dataset.src) {
+                flipped = [];
+                lock = false;
+                if (document.querySelectorAll('.card:not(.flipped)').length === 0) {
+                    stopTimer();
+                    const resultTime = difficulties[difficultySelect.value] - totalSeconds;
+                    scores[currentPlayer].push({ moves, time: resultTime });
+
+                    if (currentRound < totalRounds) {
+                        alert(`Раунд ${currentRound} завершено. Наступний!`);
+                        currentRound++;
+                        startRound();
+                    } else {
+                        showResults();
+                    }
+                }
+            } else {
+                setTimeout(() => {
+                    first.classList.remove('flipped');
+                    second.classList.remove('flipped');
+                    flipped = [];
+                    lock = false;
+                    if (players.length === 2) {
+                        currentPlayer = 1 - currentPlayer;
+                        currentPlayerSpan.textContent = players[currentPlayer];
+                    }
+                }, 1000);
+            }
+        }
+    };
+
+    document.querySelectorAll('.card').forEach((card) =>
+        card.addEventListener('click', handleClick)
+    );
+};
+
+const initGame = () => {
+    const rows = parseInt(rowsInput.value);
+    const cols = parseInt(colsInput.value);
+    const totalCards = rows * cols;
+
+    if (totalCards % 2 !== 0 || totalCards > 40) {
+        alert("Кількість карток має бути парною і не більше 40.");
+        return;
     }
-}
 
-function saveRoundResult() {
-    const player1Moves = playersData[0].moves || moves;
-    const player2Moves = playersData[1] ? playersData[1].moves : null;
-    const winner = determineRoundWinner(player1Moves, player2Moves);
-
-    roundsData.push({
-        round: currentRound,
-        player1: player1Moves,
-        player2: player2Moves,
-        winner: winner
-    });
-}
-
-function determineRoundWinner(m1, m2) {
-    if (players === 1) return playersData[0].name;
-    return m1 <= m2 ? playersData[0].name : playersData[1].name;
-}
-
-function showOverallResults() {
-    gameBoard.innerHTML = '';
-    resultDisplay.classList.remove('hidden');
-    restartButton.classList.add('hidden');
-
-    let html = `<h2>Підсумки гри</h2>`;
-    roundsData.forEach(r => {
-        html += `<p>Раунд ${r.round}: Переможець — ${r.winner}, Ходи: ${r.player1}${r.player2 !== null ? ' / ' + r.player2 : ''}</p>`;
-    });
-
-    if (players === 2) {
-        const finalWinner = determineOverallWinner();
-        html += `<h3>Загальний переможець: ${finalWinner}</h3>`;
+    players = [player1Input.value];
+    if (playersCountSelect.value === '2') {
+        players.push(player2Input.value);
     }
-
-    resultDisplay.innerHTML = html;
-}
-
-function determineOverallWinner() {
-    const wins = playersData.map(p => ({
-        name: p.name,
-        wins: roundsData.filter(r => r.winner === p.name).length
-    }));
-
-    return wins[0].wins >= wins[1].wins ? wins[0].name : wins[1].name;
-}
-
-function resetSettings() {
-    document.getElementById('settings-form').reset();
-    player2Label.style.display = 'none';
-}
-
-function showPlayer2Input() {
-    player2Label.style.display = playersSelect.value === '2' ? 'block' : 'none';
-}
-
-playersSelect.addEventListener('change', showPlayer2Input);
-startButton.addEventListener('click', () => {
+    scores = players.map(() => []);
+    currentPlayer = 0;
     currentRound = 1;
-    startGame();
+    totalRounds = parseInt(roundsInput.value);
+
+    startRound();
+};
+
+const resetSettings = () => {
+    rowsInput.value = 3;
+    colsInput.value = 4;
+    difficultySelect.value = 'easy';
+    playersCountSelect.value = '1';
+    document.getElementById('player2-label').style.display = 'none';
+    player1Input.value = 'Гравець 1';
+    player2Input.value = 'Гравець 2';
+    roundsInput.value = 1;
+};
+
+const endGame = () => {
+    document.querySelectorAll('.card').forEach(card =>
+        card.removeEventListener('click', () => {})
+    );
+};
+
+playersCountSelect.addEventListener('change', (e) => {
+    const isTwoPlayers = e.target.value === '2';
+    document.getElementById('player2-label').style.display = isTwoPlayers ? 'inline-block' : 'none';
 });
-restartButton.addEventListener('click', () => {
-    currentRound = 1;
-    startGame();
-});
-resetButton.addEventListener('click', resetSettings);
+
+startGameBtn.addEventListener('click', initGame);
+resetSettingsBtn.addEventListener('click', resetSettings);
+restartBtn.addEventListener('click', initGame);

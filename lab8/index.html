@@ -6,77 +6,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<h1>Memory Game</h1>
 
-<header class="header">
-    <h1>Memory Game</h1>
-</header>
+<div id="settings">
+    <label>Рядки: <input type="number" id="rows" min="2" max="6" value="3"></label>
+    <label>Стовпці: <input type="number" id="cols" min="2" max="6" value="4"></label>
 
-<main class="container">
+    <label>Складність:
+        <select id="difficulty">
+            <option value="easy">Легка (3 хв)</option>
+            <option value="normal">Середня (2 хв)</option>
+            <option value="hard">Складна (1 хв)</option>
+        </select>
+    </label>
+    <hr>
+    <label>Кількість гравців:
+        <select id="players-count">
+            <option value="1">1 гравець</option>
+            <option value="2">2 гравці</option>
+        </select>
+    </label>
 
-    <section class="settings">
-        <h2>Налаштування гри</h2>
-        <form id="settings-form">
-            <div class="form-group">
-                <label>Розмір поля:
-                    <select id="board-size">
-                        <option value="4x4">4x4</option>
-                        <option value="6x6">6x6</option>
-                        <option value="8x8">8x8</option>
-                    </select>
-                </label>
-            </div>
+    <div id="player-names">
+        <label>Гравець 1: <input type="text" id="player1" value="Гравець 1"></label>
+        <label id="player2-label" style="display: none;">Гравець 2: <input type="text" id="player2" value="Гравець 2"></label>
+    </div>
 
-            <div class="form-group">
-                <label>Складність:
-                    <select id="difficulty">
-                        <option value="easy">Легка (3 хв)</option>
-                        <option value="normal">Нормальна (2 хв)</option>
-                        <option value="hard">Важка (1 хв)</option>
-                    </select>
-                </label>
-            </div>
+    <label>Кількість раундів: <input type="number" id="rounds" min="1" value="1"></label>
 
-            <div class="form-group">
-                <label>Кількість гравців:
-                    <select id="players">
-                        <option value="1">1 гравець</option>
-                        <option value="2">2 гравці</option>
-                    </select>
-                </label>
-            </div>
 
-            <div class="form-group" id="players-names">
-                <label>Гравець 1: <input type="text" id="player1" value="Гравець 1"></label>
-                <label id="player2-label" class="hidden">Гравець 2: <input type="text" id="player2" value="Гравець 2"></label>
-            </div>
+    <button id="start-game">Розпочати гру</button>
+    <button id="reset-settings">Скинути налаштування</button>
+</div>
 
-            <div class="form-group">
-                <label>Кількість раундів:
-                    <input type="number" id="rounds" min="1" value="1">
-                </label>
-            </div>
+<div id="info">
+    <p>Таймер: <span id="timer">--:--</span></p>
+    <p>Ходи: <span id="moves">0</span></p>
+    <p>Хід: <span id="current-player">-</span></p>
+</div>
 
-            <div class="form-buttons">
-                <button type="button" id="start-game" class="btn">Розпочати гру</button>
-                <button type="button" id="reset-settings" class="btn secondary">Скинути налаштування</button>
-            </div>
-        </form>
-    </section>
 
-    <section class="game-info">
-        <div>⏳ Таймер: <span id="timer">00:00</span></div>
-        <div>🎯 Ходи: <span id="moves">0</span></div>
-        <div id="current-player"></div>
-    </section>
-
-    <section class="memory-game"></section>
-
-    <section id="result" class="hidden"></section>
-
-    <button id="restart" class="btn hidden">Рестарт</button>
-
-</main>
+<div id="game-board" class="board"></div>
+<button id="restart-btn">Рестарт</button>
 
 <script src="script.js"></script>
 </body>
+
 </html>

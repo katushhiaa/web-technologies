@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentIndex = 0;
     let autoplayInterval = null;
 
-    // Create dots
     for (let i = 0; i < totalSlides; i++) {
         const dot = document.createElement('span');
         dot.addEventListener('click', () => moveToSlide(i));
