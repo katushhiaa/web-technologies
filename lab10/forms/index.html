@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup/Login Form</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+<div class="container">
+
+    <div id="successMessage" class="success-message">
+        Successfully registered
+    </div>
+
+    <div class="form-box">
+        <div class="button-box">
+            <button class="up-button" id="signupBtn" onclick="showSignup()">Signup</button>
+            <button class="up-button" id="loginBtn" onclick="showLogin()">Login</button>
+        </div>
+
+        <form id="signupForm" class="form">
+            <h2>Create an account</h2>
+
+            <!-- First Name -->
+            <label for="signupFirstName">First Name</label>
+            <div class="input-wrapper">
+                <input type="text" id="signupFirstName" placeholder="Enter first name">
+                <span class="icon" id="signupFirstNameIcon"></span>
+                <div id="signupFirstNameError" class="error-text"></div>
+            </div>
+
+
+            <label for="signupLastName">Last Name</label>
+            <div class="input-wrapper">
+                <input type="text" id="signupLastName" placeholder="Enter last name">
+                <span class="icon" id="signupLastNameIcon"></span>
+                <div id="signupLastNameError" class="error-text"></div>
+            </div>
+
+            <label for="signupEmail">Email</label>
+            <div class="input-wrapper">
+                <input type="email" id="signupEmail" placeholder="Enter email">
+                <span class="icon" id="signupEmailIcon"></span>
+                <div id="signupEmailError" class="error-text"></div>
+            </div>
+
+            <label for="signupPassword">Password</label>
+            <div class="input-wrapper">
+                <input type="password" id="signupPassword" placeholder="Enter password">
+                <span class="toggle-password" onclick="togglePassword('signupPassword', this)">
+                    <svg style="
+                    width: 25px;
+                    height: 25px;">
+                    <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 442.04 442.04" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M221.02,341.304c-49.708,0-103.206-19.44-154.71-56.22C27.808,257.59,4.044,230.351,3.051,229.203 c-4.068-4.697-4.068-11.669,0-16.367c0.993-1.146,24.756-28.387,63.259-55.881c51.505-36.777,105.003-56.219,154.71-56.219 c49.708,0,103.207,19.441,154.71,56.219c38.502,27.494,62.266,54.734,63.259,55.881c4.068,4.697,4.068,11.669,0,16.367 c-0.993,1.146-24.756,28.387-63.259,55.881C324.227,321.863,270.729,341.304,221.02,341.304z M29.638,221.021 c9.61,9.799,27.747,27.03,51.694,44.071c32.83,23.361,83.714,51.212,139.688,51.212s106.859-27.851,139.688-51.212 c23.944-17.038,42.082-34.271,51.694-44.071c-9.609-9.799-27.747-27.03-51.694-44.071 c-32.829-23.362-83.714-51.212-139.688-51.212s-106.858,27.85-139.688,51.212C57.388,193.988,39.25,211.219,29.638,221.021z"></path> </g> <g> <path d="M221.02,298.521c-42.734,0-77.5-34.767-77.5-77.5c0-42.733,34.766-77.5,77.5-77.5c18.794,0,36.924,6.814,51.048,19.188 c5.193,4.549,5.715,12.446,1.166,17.639c-4.549,5.193-12.447,5.714-17.639,1.166c-9.564-8.379-21.844-12.993-34.576-12.993 c-28.949,0-52.5,23.552-52.5,52.5s23.551,52.5,52.5,52.5c28.95,0,52.5-23.552,52.5-52.5c0-6.903,5.597-12.5,12.5-12.5 s12.5,5.597,12.5,12.5C298.521,263.754,263.754,298.521,221.02,298.521z"></path> </g> <g> <path d="M221.02,246.021c-13.785,0-25-11.215-25-25s11.215-25,25-25c13.786,0,25,11.215,25,25S234.806,246.021,221.02,246.021z"></path> </g> </g> </g></svg>
+                </svg>
+                </span>
+                <div id="signupPasswordError" class="error-text"></div>
+            </div>
+
+            <label for="signupConfirmPassword">Confirm Password</label>
+            <div class="input-wrapper">
+                <input type="password" id="signupConfirmPassword" placeholder="Confirm password">
+                <span class="toggle-password" onclick="togglePassword('signupConfirmPassword', this)">
+                <svg style="
+                    width: 25px;
+                    height: 25px;">
+                    <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 442.04 442.04" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M221.02,341.304c-49.708,0-103.206-19.44-154.71-56.22C27.808,257.59,4.044,230.351,3.051,229.203 c-4.068-4.697-4.068-11.669,0-16.367c0.993-1.146,24.756-28.387,63.259-55.881c51.505-36.777,105.003-56.219,154.71-56.219 c49.708,0,103.207,19.441,154.71,56.219c38.502,27.494,62.266,54.734,63.259,55.881c4.068,4.697,4.068,11.669,0,16.367 c-0.993,1.146-24.756,28.387-63.259,55.881C324.227,321.863,270.729,341.304,221.02,341.304z M29.638,221.021 c9.61,9.799,27.747,27.03,51.694,44.071c32.83,23.361,83.714,51.212,139.688,51.212s106.859-27.851,139.688-51.212 c23.944-17.038,42.082-34.271,51.694-44.071c-9.609-9.799-27.747-27.03-51.694-44.071 c-32.829-23.362-83.714-51.212-139.688-51.212s-106.858,27.85-139.688,51.212C57.388,193.988,39.25,211.219,29.638,221.021z"></path> </g> <g> <path d="M221.02,298.521c-42.734,0-77.5-34.767-77.5-77.5c0-42.733,34.766-77.5,77.5-77.5c18.794,0,36.924,6.814,51.048,19.188 c5.193,4.549,5.715,12.446,1.166,17.639c-4.549,5.193-12.447,5.714-17.639,1.166c-9.564-8.379-21.844-12.993-34.576-12.993 c-28.949,0-52.5,23.552-52.5,52.5s23.551,52.5,52.5,52.5c28.95,0,52.5-23.552,52.5-52.5c0-6.903,5.597-12.5,12.5-12.5 s12.5,5.597,12.5,12.5C298.521,263.754,263.754,298.521,221.02,298.521z"></path> </g> <g> <path d="M221.02,246.021c-13.785,0-25-11.215-25-25s11.215-25,25-25c13.786,0,25,11.215,25,25S234.806,246.021,221.02,246.021z"></path> </g> </g> </g></svg>
+                </svg>
+                </span>
+                <div id="signupConfirmPasswordError" class="error-text"></div>
+            </div>
+
+            <label for="signupPhone">Phone</label>
+            <div class="input-wrapper">
+                <input type="text" id="signupPhone" placeholder="Enter phone (+380...)">
+                <span class="icon" id="signupPhoneIcon"></span>
+                <div id="signupPhoneError" class="error-text"></div>
+            </div>
+
+            <label for="signupBirthDate">Date of Birth</label>
+            <div class="input-wrapper">
+                <input type="date" id="signupBirthDate">
+                <span class="icon" id="signupBirthDateIcon"></span>
+                <div id="signupBirthDateError" class="error-text"></div>
+            </div>
+
+            <label>Sex</label>
+            <div class="sex-options">
+                <input type="radio" id="male" name="signupSex" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="signupSex" value="female">
+                <label for="female">Female</label>
+            </div>
+            <div id="signupSexError" class="error-text"></div>
+
+            <label for="signupCountry">Country</label>
+            <select id="signupCountry" onchange="populateCities()">
+                <option value="">Select country</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="Poland">Poland</option>
+                <option value="Germany">Germany</option>
+            </select>
+            <div id="signupCountryError" class="error-text"></div>
+
+            <label for="signupCity">City</label>
+            <select id="signupCity" disabled>
+                <option value="">Select city</option>
+            </select>
+            <div id="signupCityError" class="error-text"></div>
+
+            <button type="submit" class="submit-btn">Signup</button>
+        </form>
+
+        <form id="loginForm" class="form hidden">
+            <h2>Login here</h2>
+
+            <label for="loginUsername">Username</label>
+            <div class="input-wrapper">
+                <input type="text" id="loginUsername" placeholder="Enter username">
+                <span class="icon" id="loginUsernameIcon"></span>
+                <div id="loginUsernameError" class="error-text"></div>
+            </div>
+
+
+            <label for="loginPassword">Password</label>
+            <div class="input-wrapper">
+                <input type="password" id="loginPassword" placeholder="Enter password">
+                <span class="toggle-password" onclick="togglePassword('loginPassword', this)">
+                <svg style="
+                    width: 25px;
+                    height: 25px;">
+                    <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 442.04 442.04" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M221.02,341.304c-49.708,0-103.206-19.44-154.71-56.22C27.808,257.59,4.044,230.351,3.051,229.203 c-4.068-4.697-4.068-11.669,0-16.367c0.993-1.146,24.756-28.387,63.259-55.881c51.505-36.777,105.003-56.219,154.71-56.219 c49.708,0,103.207,19.441,154.71,56.219c38.502,27.494,62.266,54.734,63.259,55.881c4.068,4.697,4.068,11.669,0,16.367 c-0.993,1.146-24.756,28.387-63.259,55.881C324.227,321.863,270.729,341.304,221.02,341.304z M29.638,221.021 c9.61,9.799,27.747,27.03,51.694,44.071c32.83,23.361,83.714,51.212,139.688,51.212s106.859-27.851,139.688-51.212 c23.944-17.038,42.082-34.271,51.694-44.071c-9.609-9.799-27.747-27.03-51.694-44.071 c-32.829-23.362-83.714-51.212-139.688-51.212s-106.858,27.85-139.688,51.212C57.388,193.988,39.25,211.219,29.638,221.021z"></path> </g> <g> <path d="M221.02,298.521c-42.734,0-77.5-34.767-77.5-77.5c0-42.733,34.766-77.5,77.5-77.5c18.794,0,36.924,6.814,51.048,19.188 c5.193,4.549,5.715,12.446,1.166,17.639c-4.549,5.193-12.447,5.714-17.639,1.166c-9.564-8.379-21.844-12.993-34.576-12.993 c-28.949,0-52.5,23.552-52.5,52.5s23.551,52.5,52.5,52.5c28.95,0,52.5-23.552,52.5-52.5c0-6.903,5.597-12.5,12.5-12.5 s12.5,5.597,12.5,12.5C298.521,263.754,263.754,298.521,221.02,298.521z"></path> </g> <g> <path d="M221.02,246.021c-13.785,0-25-11.215-25-25s11.215-25,25-25c13.786,0,25,11.215,25,25S234.806,246.021,221.02,246.021z"></path> </g> </g> </g></svg>
+                </svg>
+                </span>
+                <div id="loginPasswordError" class="error-text"></div>
+            </div>
+
+
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Remember Me</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+    </div>
+</div>
+
+<script src="../jss"></script>
+</body>
+</html>

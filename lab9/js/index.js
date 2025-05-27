@@ -133,7 +133,7 @@ document.getElementById('signupForm').addEventListener('submit', function(e) {
     }
 
     if (!birthDate.value || calculateAge(birthDate.value) < 12) {
-        setError(birthDate, 'Invalid birth date.');
+        setError(birthDate, 'Invalid birth date or you need to be older then 12');
         isValid = false;
     } else {
         setSuccess(birthDate);

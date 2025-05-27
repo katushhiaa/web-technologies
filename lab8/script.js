@@ -99,7 +99,7 @@ const showResults = () => {
 
     const winner = (players.length === 1)
         ? players[0]
-        : (scores[0].reduce((a, b) => a + b.moves, 0) < scores[1].reduce((a, b) => a + b.moves, 0)
+        : (scores[0].reduce((a, b) => a + b.moves, 0) > scores[1].reduce((a, b) => a + b.moves, 0)
             ? players[0]
             : players[1]);
 
