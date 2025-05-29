@@ -8,15 +8,18 @@ let currentPage = 1;
 const USERS_PER_PAGE = 30;
 let visibleCount = USERS_PER_PAGE;
 
-
 let debounceTimer = null;
 
 function renderPage() {
     const favorites = getFavorites();
-    renderUserCards(filteredUsers.slice(0, visibleCount), favorites);
+    const start = (currentPage - 1) * USERS_PER_PAGE;
+    const end = currentPage * USERS_PER_PAGE;
+    const usersToShow = filteredUsers.slice(start, end);
+    renderUserCards(usersToShow, favorites);
     renderPagination();
     updateURL();
 }
+
 
 function renderPagination() {
     const totalPages = Math.ceil(filteredUsers.length / USERS_PER_PAGE);
@@ -29,42 +32,54 @@ function renderPagination() {
         btn.classList.toggle('active', i === currentPage);
         btn.addEventListener('click', () => {
             currentPage = i;
-            visibleCount = i * USERS_PER_PAGE;
             renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         paginationContainer.appendChild(btn);
     }
 }
 
 function updateURL() {
-    try {
-        const params = new URLSearchParams();
+    const params = new URLSearchParams();
 
-        const searchValue = document.getElementById('searchInput')?.value.trim() || '';
-        const sortValue = document.getElementById('sortSelect')?.value || '';
+    const searchValue = document.getElementById('searchInput')?.value.trim();
+    const sortValue = document.getElementById('sortSelect')?.value;
+    const ageMinValue = document.getElementById('ageMinFilter')?.value;
+    const ageMaxValue = document.getElementById('ageMaxFilter')?.value;
+    const birthYearValue = document.getElementById('birthYearFilter')?.value;
+    const emailValue = document.getElementById('emailFilter')?.value.trim();
+    const locationValue = document.getElementById('locationFilter')?.value.trim();
+    const nameValue = document.getElementById('nameFilter')?.value.trim();
 
-        if (searchValue) params.set('search', searchValue);
-        if (sortValue) params.set('sort', sortValue);
-        if (currentPage > 1) params.set('page', currentPage);
+    if (searchValue) params.set('search', searchValue);
+    if (sortValue) params.set('sort', sortValue);
+    if (ageMinValue) params.set('ageMin', ageMinValue);
+    if (ageMaxValue) params.set('ageMax', ageMaxValue);
+    if (birthYearValue) params.set('birthYear', birthYearValue);
+    if (emailValue) params.set('email', emailValue);
+    if (locationValue) params.set('location', locationValue);
+    if (nameValue) params.set('name', nameValue);
+    if (currentPage > 1) params.set('page', currentPage);
 
-        const newUrl = `${window.location.pathname}?${params.toString()}`;
-        history.replaceState(null, '', newUrl);
-    } catch (err) {
-        console.error('updateURL failed:', err);
-    }
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    history.replaceState(null, '', newUrl);
 }
-
 
 function readURL() {
     const params = new URLSearchParams(window.location.search);
 
-    const search = params.get('search') || '';
-    const sort = params.get('sort') || '';
-    const page = parseInt(params.get('page')) || 1;
+    document.getElementById('searchInput').value = params.get('search') || '';
+    document.getElementById('sortSelect').value = params.get('sort') || '';
+    document.getElementById('countryFilter').value = params.get('country') || '';
+    document.getElementById('ageMinFilter').value = params.get('ageMin') || '';
+    document.getElementById('ageMaxFilter').value = params.get('ageMax') || '';
+    document.getElementById('birthYearFilter').value = params.get('birthYear') || '';
+    document.getElementById('emailFilter').value = params.get('email') || '';
+    document.getElementById('locationFilter').value = params.get('location') || '';
+    document.getElementById('nameFilter').value = params.get('name') || '';
 
-    document.getElementById('searchInput').value = search;
-    document.getElementById('sortSelect').value = sort;
-    currentPage = page;
+    currentPage = parseInt(params.get('page')) || 1;
+    visibleCount = currentPage * USERS_PER_PAGE;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -86,16 +101,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
+    await initApp();
+
     document.querySelector('.container').classList.add('hidden');
     document.getElementById('mainApp').classList.remove('hidden');
-
-    allUsers = await fetchUsers();
-    filteredUsers = [...allUsers];
-
-    populateBirthYearFilter();
-    populateCountryFilter(allUsers);
-    readURL();
-    applyFilters();
 });
 
 window.addEventListener('scroll', () => {
@@ -104,6 +113,7 @@ window.addEventListener('scroll', () => {
 
     if (nearBottom && moreToLoad) {
         visibleCount += USERS_PER_PAGE;
+        currentPage = Math.ceil(visibleCount / USERS_PER_PAGE);
         renderPage();
     }
 });
@@ -155,36 +165,30 @@ function sortUsers(value) {
 }
 
 function applyFilters() {
-    const name = document.getElementById('nameFilter')?.value.toLowerCase() || '';
+    const name = document.getElementById('searchInput')?.value.toLowerCase() || '';
     const email = document.getElementById('emailFilter')?.value.toLowerCase() || '';
     const location = document.getElementById('locationFilter')?.value.toLowerCase() || '';
     const ageMin = parseInt(document.getElementById('ageMinFilter')?.value) || 0;
     const ageMax = parseInt(document.getElementById('ageMaxFilter')?.value) || 120;
-    const birthYear = parseInt(document.getElementById('birthYearFilter')?.value);
+    const birthYearValue = document.getElementById('birthYearFilter')?.value;
+    const birthYear = birthYearValue ? parseInt(birthYearValue) : null;
 
     filteredUsers = allUsers.filter(user => {
         const fullName = `${user.firstName} ${user.lastName}`.toLowerCase();
-        const matchName = name ? fullName.includes(name) : true;
+        const matchName = fullName.includes(name);
         const matchEmail = user.email.toLowerCase().includes(email);
         const matchLocation = user.location.toLowerCase().includes(location);
         const matchAge = user.age >= ageMin && user.age <= ageMax;
         const matchBirth = birthYear ? new Date(user.dob).getFullYear() >= birthYear : true;
 
-        return (
-            matchName &&
-            matchEmail &&
-            matchLocation &&
-            matchAge &&
-            matchBirth
-        );
+        return matchName && matchEmail && matchLocation && matchAge && matchBirth;
     });
 
     sortUsers(document.getElementById('sortSelect')?.value);
-    visibleCount = currentPage * USERS_PER_PAGE;
+    currentPage = 1;
+    visibleCount = USERS_PER_PAGE;
     renderPage();
 }
-
-
 
 function populateCountryFilter(users) {
     const select = document.getElementById('countryFilter');
@@ -212,4 +216,15 @@ function populateBirthYearFilter() {
     }
 }
 
+async function initApp() {
+    document.querySelector('.container').classList.add('hidden');
+    document.getElementById('mainApp').classList.remove('hidden');
 
+    allUsers = await fetchUsers();
+    filteredUsers = [...allUsers];
+
+    populateBirthYearFilter();
+    populateCountryFilter(allUsers);
+    readURL();
+    applyFilters();
+}

@@ -16,6 +16,7 @@ header {
     padding: 20px;
     background: #0077b6;
     color: #fff;
+    border-radius: 8px;
 }
 
 input, select {
@@ -335,10 +336,9 @@ select:focus {
     transform: scale(1.2);
 }
 
-
 .filters {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
     gap: 16px;
     padding: 20px;
     max-width: 1200px;
@@ -374,19 +374,105 @@ select:focus {
     outline: none;
 }
 
+#logoutBtn{
+    width: 25%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
 
 @media (max-width: 480px) {
-    .container {
-        width: 90%;
-        padding: 30px 20px;
+    body {
+        padding: 20px 10px;
     }
 
-    .button-box {
-        gap: 5px;
+    header h1 {
+        font-size: 20px;
     }
 
-    .users-grid {
-        grid-template-columns: 1fr;
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .filters {
+        padding: 0 10px;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .pagination button {
+        flex: 1 1 auto;
+        min-width: 40px;
+        font-size: 14px;
+    }
+
+    #mainApp {
+        padding: 10px;
+    }
+
+    .filters .filter-group {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    #logoutBtn {
+        width: auto;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filters {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        padding: 10px;
+    }
+
+    .filter-group input,
+    .filter-group select {
+        font-size: 13px;
+    }
+
+    .user-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        padding: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .filters {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 10px;
+        gap: 12px;
+    }
+
+    .user-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .controls {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
     }
 }

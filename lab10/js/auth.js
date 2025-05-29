@@ -142,41 +142,27 @@ function handleLogin(e) {
 
     clearFeedback();
 
-    let isValid = true;
+    const user = {
+        email: email.value.trim(),
+        password: password.value.trim()
+    };
 
-    const stored = JSON.parse(localStorage.getItem('currentUser'));
-
-    if (email.value.trim() === '') {
+    if (!user.email || !user.password) {
         setError(email, 'Email is required.');
-        isValid = false;
-    } else setSuccess(email);
-
-    if (password.value.trim() === '') {
         setError(password, 'Password is required.');
-        isValid = false;
-    } else setSuccess(password);
-
-    if (!stored || stored.email !== email.value || stored.password !== password.value) {
-        document.getElementById('loginUsernameError').textContent = 'Invalid email or password.';
-        document.getElementById('loginPasswordError').textContent = 'Invalid email or password.';
         return;
     }
 
-    if (isValid) {
-        localStorage.setItem('currentUser', JSON.stringify(stored)); // ✅ Додано
-        alert('Login successful!');
-        e.target.reset();
-        document.querySelector('.container').classList.add('hidden');
-        document.getElementById('mainApp').classList.remove('hidden');
-        location.reload();
-    }
+    localStorage.setItem('currentUser', JSON.stringify(user));
 
-
+    e.target.reset();
     document.querySelector('.container').classList.add('hidden');
     document.getElementById('mainApp').classList.remove('hidden');
-    location.reload(); // або викликати renderUsers з main.js
 
+    import('./main.js').then(({ initApp }) => initApp());
 }
+
+
 
 function clearFeedback() {
     document.querySelectorAll('.error-text').forEach(e => e.textContent = '');
@@ -228,3 +214,5 @@ export function setupFormEvents() {
     document.getElementById('signupForm')?.addEventListener('submit', handleSignup);
     document.getElementById('loginForm')?.addEventListener('submit', handleLogin);
 }
+
+
