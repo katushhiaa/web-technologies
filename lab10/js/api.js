@@ -5,7 +5,6 @@
 export async function fetchUsers() {
     const cacheKey = 'randomUsers';
 
-    // If data exists in sessionStorage — return it
     const cached = sessionStorage.getItem(cacheKey);
     if (cached) {
         try {

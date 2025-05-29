@@ -164,16 +164,38 @@
     </section>
 
     <section class="filters">
-        <select id="genderFilter">
-            <option value="">All Genders</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
+        <div class="filter-group">
+            <label for="ageMinFilter">Min Age</label>
+            <input type="number" id="ageMinFilter" placeholder="e.g. 18" />
+        </div>
 
-        <select id="countryFilter">
-            <option value="">All Countries</option>
-        </select>
+        <div class="filter-group">
+            <label for="ageMaxFilter">Max Age</label>
+            <input type="number" id="ageMaxFilter" placeholder="e.g. 45" />
+        </div>
+
+        <div class="filter-group">
+            <label for="birthYearFilter">Born after</label>
+            <select id="birthYearFilter"></select>
+        </div>
+
+        <div class="filter-group">
+            <label for="emailFilter">Email</label>
+            <input type="text" id="emailFilter" placeholder="e.g. user@example.com" />
+        </div>
+
+        <div class="filter-group">
+            <label for="locationFilter">City / Location</label>
+            <input type="text" id="locationFilter" placeholder="Enter location..." />
+        </div>
+
+        <div class="filter-group">
+            <label for="nameFilter">Name</label>
+            <input type="text" id="nameFilter" placeholder="e.g. John" />
+        </div>
     </section>
+
+
 
     <div id="userCardsContainer" class="user-cards-grid"></div>
 

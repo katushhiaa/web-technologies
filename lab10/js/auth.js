@@ -163,10 +163,14 @@ function handleLogin(e) {
     }
 
     if (isValid) {
+        localStorage.setItem('currentUser', JSON.stringify(stored)); // ✅ Додано
         alert('Login successful!');
         e.target.reset();
-        document.querySelector('.container').innerHTML = `<div class="welcome">Welcome, ${stored.firstName}!</div>`;
+        document.querySelector('.container').classList.add('hidden');
+        document.getElementById('mainApp').classList.remove('hidden');
+        location.reload();
     }
+
 
     document.querySelector('.container').classList.add('hidden');
     document.getElementById('mainApp').classList.remove('hidden');

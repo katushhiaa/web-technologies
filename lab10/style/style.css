@@ -336,6 +336,45 @@ select:focus {
 }
 
 
+.filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #222;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #fff;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+
 
 @media (max-width: 480px) {
     .container {
