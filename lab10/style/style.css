@@ -9,6 +9,10 @@ body {
     padding: 40px 0;
 }
 
+p{
+    font-size: 14px;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -306,6 +310,10 @@ select:focus {
     transition: transform 0.2s ease;
 }
 
+.user-card h2{
+    text-align: center;
+}
+
 .user-card:hover {
     transform: translateY(-5px);
 }
@@ -318,9 +326,7 @@ select:focus {
     object-fit: cover;
 }
 
-.user-info {
-    text-align: center;
-}
+
 
 .favorite-btn {
     margin-top: 10px;

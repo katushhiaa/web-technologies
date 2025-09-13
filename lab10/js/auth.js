@@ -122,7 +122,7 @@ function handleSignup(e) {
     localStorage.setItem('currentUser', JSON.stringify(user));
     document.querySelector('.container').classList.add('hidden');
     document.getElementById('mainApp').classList.remove('hidden');
-    location.reload(); // або викликати renderUsers з main.js
+    location.reload();
 
 
     document.getElementById('successMessage').style.display = 'block';
