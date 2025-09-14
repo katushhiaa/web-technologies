@@ -4,46 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9687b45-25e3-4d5e-abc2-9a1968e20865" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/lab1ts.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/functions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/functions.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/main.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/task4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/task4.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/variables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/variables.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/functions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/task4.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/variables.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/functions.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/functions.d.ts.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/functions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/functions.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/task4.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/task4.d.ts.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/task4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/task4.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/variables.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/variables.d.ts.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/variables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/dist/variables.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescriptlab1/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab10/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../lab10/js/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab10/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../lab10/style/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="e9687b45-25e3-4d5e-abc2-9a1968e20865" name="Changes" comment="lab1TS" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,21 +22,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "katushhiaa"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;katushhiaa&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/katushhiaa/web-technologies",
-    "accountId": "5ab9575b-400a-40fe-95a1-25f59d7225bd"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/katushhiaa/web-technologies&quot;,
+    &quot;accountId&quot;: &quot;5ab9575b-400a-40fe-95a1-25f59d7225bd&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="32eYPHiDDWphA0nzEf2DqjUxsPQ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -84,24 +45,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Node.js.Unnamed.executor": "Run",
-    "Node.js.main.ts.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "F:/web-technologies-labs/lab1ts/src/main.ts",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "F:\\web-technologies-labs\\lab1ts\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Node.js.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.main.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/web-technologies-labs/lab1ts/src/main.ts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;F:\\web-technologies-labs\\lab1ts\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\web-technologies-labs\lab1ts\src\scripts" />
@@ -136,8 +97,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757782479943</updated>
-      <workItem from="1757782482237" duration="3130000" />
+      <workItem from="1757782482237" duration="3314000" />
     </task>
+    <task id="LOCAL-00001" summary="lab1TS">
+      <option name="closed" value="true" />
+      <created>1757785877897</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1757785877897</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,5 +115,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="lab1TS" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab1TS" />
   </component>
 </project>
