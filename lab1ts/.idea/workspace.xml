@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9687b45-25e3-4d5e-abc2-9a1968e20865" name="Changes" comment="lab1TS" />
+    <list default="true" id="e9687b45-25e3-4d5e-abc2-9a1968e20865" name="Changes" comment="lab1TS">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,6 +100,9 @@
       <option name="presentableId" value="Default" />
       <updated>1757782479943</updated>
       <workItem from="1757782482237" duration="3314000" />
+      <workItem from="1757856605928" duration="507000" />
+      <workItem from="1757857149511" duration="2000" />
+      <workItem from="1758403821694" duration="46000" />
     </task>
     <task id="LOCAL-00001" summary="lab1TS">
       <option name="closed" value="true" />
@@ -107,14 +112,50 @@
       <option name="project" value="LOCAL" />
       <updated>1757785877897</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="lab1TS">
+      <option name="closed" value="true" />
+      <created>1757856872767</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1757856872767</updated>
+    </task>
+    <task id="LOCAL-00003" summary="lab1TS">
+      <option name="closed" value="true" />
+      <created>1757856894292</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757856894292</updated>
+    </task>
+    <task id="LOCAL-00004" summary="lab1TS">
+      <option name="closed" value="true" />
+      <created>1757856927186</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1757856927186</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="gitignore file added" />
     <MESSAGE value="lab1TS" />
     <option name="LAST_COMMIT_MESSAGE" value="lab1TS" />
   </component>
