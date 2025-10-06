@@ -5,7 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9687b45-25e3-4d5e-abc2-9a1968e20865" name="Changes" comment="lab1TS">
+      <change afterPath="$PROJECT_DIR$/../lab2ts/.idea/lab2ts.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/.idea/lab3-ts.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/design/ui-form-validation.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/design/ui-modal-complete.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/design/ui-modal-returned.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/design/ui-modal.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/design/ui-state-0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/design/ui-state-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/design/ui-state-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/dist/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/libs/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/src/app.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/src/library.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/src/modal.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/src/models.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/src/services.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/src/storage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/src/validation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab3-ts/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../typescriptlab1/.idea/typescriptlab1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled1/.idea/untitled1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/variables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/variables.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +134,10 @@
       <workItem from="1757856605928" duration="507000" />
       <workItem from="1757857149511" duration="2000" />
       <workItem from="1758403821694" duration="46000" />
+      <workItem from="1758535133145" duration="3586000" />
+      <workItem from="1759129199486" duration="213000" />
+      <workItem from="1759129493806" duration="683000" />
+      <workItem from="1759298458410" duration="133000" />
     </task>
     <task id="LOCAL-00001" summary="lab1TS">
       <option name="closed" value="true" />

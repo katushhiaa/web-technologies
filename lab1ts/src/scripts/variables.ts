@@ -8,8 +8,9 @@ console.log("number:", num1);
 console.log("boolean:", bool1);
 console.log("any:", anything);
 
-let numArr : number[] = [1,2,3,4,5,6,7,8,9,10];
+let numArr : number[] | string[] = [1,2,3,4,5,6,7,8,9,10, "Hello"];
 let strArr :string[] = ["A", "B", "C"];
 
 console.log("numArr:", numArr);
 console.log("strArr:", strArr);
+
