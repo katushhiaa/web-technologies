@@ -1,106 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Система управління бібліотекою</title>
-    <link rel="stylesheet" href="./libs/bootstrap.css"/>
-</head>
-<body class="card mb-4">
+    <link rel="stylesheet" href="./libs/bootstrap.css" />
+  </head>
+  <body class="card mb-4">
     <div class="container my-4">
-        <h2 class="text-center mb-4">Система управління бібліотекою</h2>
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Додати Книгу</h5>
-                <form id="bookForm" novalidate>
-                    <div class="mb-3">
-                        <input id="bookTitle" class="form-control" placeholder="Назва книги"/>
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="mb-3">
-                        <input id="bookAuthor" class="form-control" placeholder="Автор"/>
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="mb-3">
-                        <input id="bookYear" class="form-control" placeholder="Рік видання" inputmode="numeric"/>
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <button class="btn btn-success" type="submit">Додати Книгу</button>
-                </form>
+      <h2 class="text-center mb-4">Система управління бібліотекою</h2>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Додати Книгу</h5>
+          <form id="bookForm" novalidate>
+            <div class="mb-3">
+              <input id="bookTitle" class="form-control" placeholder="Назва книги" />
+              <div class="invalid-feedback"></div>
             </div>
-        </div>
-
-
-        <!-- Add User -->
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Додати Користувача</h5>
-                <form id="userForm" novalidate>
-                    <div class="mb-3">
-                        <input id="userId" class="form-control" placeholder="ID (лише цифри)" inputmode="numeric"/>
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="mb-3">
-                        <input id="userName" class="form-control" placeholder="Ім'я"/>
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="mb-3">
-                        <input id="userEmail" class="form-control" placeholder="Email"/>
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <button class="btn btn-success" type="submit">Додати Користувача</button>
-                </form>
+            <div class="mb-3">
+              <input id="bookAuthor" class="form-control" placeholder="Автор" />
+              <div class="invalid-feedback"></div>
             </div>
-        </div>
-
-        <!--lists-->
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Список Книг</h5>
-                <ul id="bookList" class="list-group"></ul>
+            <div class="mb-3">
+              <input
+                id="bookYear"
+                class="form-control"
+                placeholder="Рік видання"
+                inputmode="numeric"
+              />
+              <div class="invalid-feedback"></div>
             </div>
+            <button class="btn btn-success" type="submit">Додати Книгу</button>
+          </form>
         </div>
+      </div>
 
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Список Користувачів</h5>
-                <ul id="userList" class="list-group"></ul>
+      <!-- Add User -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Додати Користувача</h5>
+          <form id="userForm" novalidate>
+            <div class="mb-3">
+              <input
+                id="userId"
+                class="form-control"
+                placeholder="ID (лише цифри)"
+                inputmode="numeric"
+              />
+              <div class="invalid-feedback"></div>
             </div>
+            <div class="mb-3">
+              <input id="userName" class="form-control" placeholder="Ім'я" />
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <input id="userEmail" class="form-control" placeholder="Email" />
+              <div class="invalid-feedback"></div>
+            </div>
+            <button class="btn btn-success" type="submit">Додати Користувача</button>
+          </form>
         </div>
+      </div>
+
+      <!--lists-->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Список Книг</h5>
+          <ul id="bookList" class="list-group"></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Список Користувачів</h5>
+          <ul id="userList" class="list-group"></ul>
+        </div>
+      </div>
     </div>
 
     <div class="modal fade" id="appModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog"><div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body"></div>
-            <div class="modal-footer"></div>
-        </div></div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous">
-    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVЗLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVЗLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <script src="./dist/app.js"></script>
-</body>
+  </body>
 </html>
-
-const id = "ВАШ_ID";
-(JSON.parse(localStorage.getItem("lab.books")||"[]").filter(b => b.borrowedBy === id)).length
-
-// Підстав свій фактичний userId як рядок
-const ID = "123";
-
-// 1) витягнути книги з LS
-const books = JSON.parse(localStorage.getItem("lab.books") || "[]");
-
-// 2) скільки книг реально позичив цей користувач
-books.filter(b => b.borrowedBy === ID).length
